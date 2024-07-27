@@ -2,14 +2,24 @@
 
 ## Description
 
-A basic platformer for Game Maker, mainly create this as a starting point for my kids, I'll get all the basics working and then 
+A basic platformer for Game Maker, creating this as a starting point for my kids, I'll get all the basics working and then 
 they can build from there.
 
 ![Screenshot of Progress](screenshot.png "Basic Screenshot")
 
 ## Features
 
-- None yet
+- Player moment - left & right
+- Sprite switches based on movement
+- Sprite faces correct direction
+
+## Working on
+
+- Collisions
+- Jumping
+- Platforms
+- Jump through platforms
+- Moving platforms
 
 ## How to run
 
