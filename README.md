@@ -14,3 +14,7 @@ they can build from there.
 - Download Game Maker
 - Download the Project
 - Open the Project in Game Maker and press play
+
+## Credits
+
+Player character is by https://zegley.itch.io/ - check his page for this asset [here](https://zegley.itch.io/2d-platformermetroidvania-asset-pack)
