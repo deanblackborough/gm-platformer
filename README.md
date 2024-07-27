@@ -5,6 +5,8 @@
 A basic platformer for Game Maker, mainly create this as a starting point for my kids, I'll get all the basics working and then 
 they can build from there.
 
+![Screenshot of Progress](screenshot.png "Basic Screenshot")
+
 ## Features
 
 - None yet
