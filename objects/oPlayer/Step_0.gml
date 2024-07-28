@@ -8,8 +8,9 @@ if (playerMovementDirection != 0)
 	playerSpriteFacing = playerMovementDirection;
 }
 
-playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
+/** X Collision **/
+playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
 
 if (place_meeting(x + playerSpeedX, y, oGround)) 
@@ -23,6 +24,28 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 x += playerSpeedX;
 
 
+/** Player movment Y **/
+playerSpeedY += gravitySpeed;
+
+
+if (inputJumpKeyPressed > 0) 
+{
+	playerSpeedY = playerJumpForce;
+}
+
+if (playerSpeedY > gravityTerminalSpeed) {
+	playerSpeedY = gravityTerminalSpeed;
+}
+
+/** Player collision Y **/
+if (place_meeting(x, y + playerSpeedY, oGround)) 
+{
+	playerSpeedY = 0;
+}
+
+y += playerSpeedY;
+
+
 // Switch the sprites
 if (playerSpeedX == 0) 
 {
@@ -32,4 +55,9 @@ if (playerSpeedX == 0)
 if (abs(playerSpeedX) > 0) 
 {
 	sprite_index = playerSpriteRun;		
+}
+
+if (abs(playerSpeedY) > 0) 
+{
+	sprite_index = playerSpriteJump;	
 }

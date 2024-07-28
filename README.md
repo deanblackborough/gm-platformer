@@ -10,7 +10,9 @@ they can build from there.
 ## Features
 
 - Player moment - left & right
-- Player collision with ground object on x axis
+- Player collision with ground objects on x axis
+- Player collision with ground objects on y axis
+- Player jumping (infinite currently)
 - Sprite switches based on movement
 - Sprite faces correct direction
 

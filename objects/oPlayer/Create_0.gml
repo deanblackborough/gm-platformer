@@ -10,3 +10,8 @@ playerSpriteIdle = sPlayerIdle;
 playerSpriteRun = sPlayerRun;
 playerSpriteJump = sPlayerJump;
 playerSpriteFacing = 1;
+
+gravitySpeed = 0.3;
+gravityTerminalSpeed = 6;
+
+playerJumpForce = -5;
