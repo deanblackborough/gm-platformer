@@ -10,6 +10,7 @@ they can build from there.
 ## Features
 
 - Player moment - left & right
+- Player collision with ground object on x axis
 - Sprite switches based on movement
 - Sprite faces correct direction
 
