@@ -18,8 +18,8 @@ they can build from there.
 
 ## Working on
 
-- Collisions
-- Jumping
+- Collisions (In progress)
+- Jumping (In progress)
 - Platforms
 - Jump through platforms
 - Moving platforms
