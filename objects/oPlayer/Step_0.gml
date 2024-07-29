@@ -15,7 +15,7 @@ playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
 if (place_meeting(x + playerSpeedX, y, oGround)) 
 {
-	snapToColliderOnX(oPlayer, playerSpeedX, oGround);
+	snapToColliderOnX(playerSpeedX, oGround);
 	playerSpeedX = 0;
 }
 
@@ -28,9 +28,17 @@ x += playerSpeedX;
 playerSpeedY += gravitySpeed;
 
 
-if (inputJumpKeyPressed > 0) 
+if (playerOnGround) 
+{
+	playerJumps = 0;	
+}
+
+
+if (inputJumpKeyPressed > 0 && playerJumps < playerMaxJumps) 
 {
 	playerSpeedY = playerJumpForce;
+	
+	setPlayerOnGround(false, true);
 }
 
 if (playerSpeedY > gravityTerminalSpeed) {
@@ -41,6 +49,8 @@ if (playerSpeedY > gravityTerminalSpeed) {
 if (place_meeting(x, y + playerSpeedY, oGround)) 
 {
 	playerSpeedY = 0;
+	
+	setPlayerOnGround(true);
 }
 
 y += playerSpeedY;
@@ -61,3 +71,8 @@ if (abs(playerSpeedY) > 0)
 {
 	sprite_index = playerSpriteJump;	
 }
+
+/** Debug messages for jumping **/
+//show_debug_message("Number of jumps " + string(playerJumps));
+//show_debug_message("Number of max jumps " + string(playerMaxJumps));
+//show_debug_message("On ground " + string(playerOnGround));

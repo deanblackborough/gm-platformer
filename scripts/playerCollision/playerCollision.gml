@@ -1,18 +1,38 @@
 
-function snapToColliderOnX(playerObject, xSpeed, colliderObject, colliderSnap = 0.5)
+function snapToColliderOnX(_xSpeed, _colliderObject, _colliderSnap = 0.5)
 {
-	var snapToPlatform = colliderSnap * sign(xSpeed);
-	while (!place_meeting(playerObject.x + snapToPlatform, playerObject.y, colliderObject)) 
+	var snapToPlatform = _colliderSnap * sign(_xSpeed);
+	while (!place_meeting(x + snapToPlatform, y, _colliderObject)) 
 	{
-		playerObject.x += snapToPlatform;
+		x += snapToPlatform;
 	}
 }
 
-function snapToColliderOnY(playerObject, ySpeed, colliderObject, colliderSnap = 0.5)
+function snapToColliderOnY(_ySpeed, _colliderObject, _colliderSnap = 0.5)
 {
-	var snapToPlatform = colliderSnap * sign(ySpeed);
-	while (!place_meeting(playerObject.x, playerObject.y + snapToPlatform, colliderObject)) 
+	var snapToPlatform = _colliderSnap * sign(_ySpeed);
+	while (!place_meeting(x, y + snapToPlatform, _colliderObject)) 
 	{
-		playerObject.y += snapToPlatform;
+		y += snapToPlatform;
+	}
+}
+
+// @function	setPlayerOnGround(_state, _jump = false)
+/// @description	Set the playr on ground and optionally increase jump count
+/// @param {Bool} _state	The on ground state
+/// @param {Bool} _jump	Should the jump count be increased?
+///
+function setPlayerOnGround(_state, _jump = false) 
+{
+	playerOnGround = _state;
+	
+	if (_state == true) 
+	{
+		playerJumps = 0;	
+	}
+	
+	if (_state == false && _jump == true) 
+	{
+		playerJumps++;	
 	}
 }
