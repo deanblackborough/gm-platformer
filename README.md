@@ -12,7 +12,7 @@ they can build from there.
 - Player moment - left & right
 - Player collision with ground objects on x axis
 - Player collision with ground objects on y axis
-- Player jumping (infinite currently)
+- Player jumping (up to a max jump setting)
 - Sprite switches based on movement
 - Sprite faces correct direction
 
@@ -20,9 +20,12 @@ they can build from there.
 
 - Collisions (In progress)
 - Jumping (In progress)
-- Platforms
+- Platforms (In Progress)
 - Jump through platforms
 - Moving platforms
+- Dashing/Dodging
+- Wall climb and Wall hang
+- Breakable walls/platforms
 
 ## How to run
 
