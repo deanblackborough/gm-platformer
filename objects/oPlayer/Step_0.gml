@@ -12,7 +12,6 @@ if (playerMovementDirection != 0)
 /** X Collision **/
 playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
-
 if (place_meeting(x + playerSpeedX, y, oGround)) 
 {
 	snapToColliderOnX(playerSpeedX, oGround);
@@ -46,7 +45,19 @@ if (playerSpeedY > gravityTerminalSpeed) {
 }
 
 /** Player collision Y **/
-if (place_meeting(x, y + playerSpeedY, oGround)) 
+var playerNextPositionY = y + playerSpeedY;
+
+if (place_meeting(x, playerNextPositionY, oGround))
+{
+	playerSpeedY = 0;
+	
+	setPlayerOnGround(true);
+}
+
+if (
+	place_meeting(x, playerNextPositionY, oJumpThroughPlatform) && 
+	floor(playerNextPositionY) <= oJumpThroughPlatform.bbox_top
+)
 {
 	playerSpeedY = 0;
 	
@@ -73,6 +84,12 @@ if (abs(playerSpeedY) > 0)
 }
 
 /** Debug messages for jumping **/
-show_debug_message("Number of jumps " + string(playerJumps));
-show_debug_message("Number of max jumps " + string(playerMaxJumps));
-show_debug_message("On ground " + string(playerOnGround));
+//show_debug_message("Number of jumps " + string(playerJumps));
+//show_debug_message("Number of max jumps " + string(playerMaxJumps));
+//show_debug_message("On ground " + string(playerOnGround));
+show_debug_message("Player position " + string(y));
+show_debug_message("Player position diff " + string(playerNextPositionY - y));
+show_debug_message("Player next position " + string(playerNextPositionY));
+show_debug_message("Player next position floor " + string(floor(playerNextPositionY)));
+//show_debug_message("Platform top " + string(oJumpThroughPlatform.bbox_top));
+//show_debug_message("Platform bottom " + string(oJumpThroughPlatform.bbox_bottom));
