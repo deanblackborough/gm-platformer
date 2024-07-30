@@ -73,6 +73,6 @@ if (abs(playerSpeedY) > 0)
 }
 
 /** Debug messages for jumping **/
-//show_debug_message("Number of jumps " + string(playerJumps));
-//show_debug_message("Number of max jumps " + string(playerMaxJumps));
-//show_debug_message("On ground " + string(playerOnGround));
+show_debug_message("Number of jumps " + string(playerJumps));
+show_debug_message("Number of max jumps " + string(playerMaxJumps));
+show_debug_message("On ground " + string(playerOnGround));

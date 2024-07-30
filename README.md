@@ -19,13 +19,14 @@ they can build from there.
 ## Working on
 
 - Collisions (In progress)
-- Jumping (In progress)
-- Platforms (In Progress)
-- Jump through platforms
+- Platforms
+- Jump through platforms (In Progress)
 - Moving platforms
-- Dashing/Dodging
+- Dashing/Dodging/Rolling
 - Wall climb and Wall hang
 - Breakable walls/platforms
+- Ladders
+
 
 ## How to run
 
