@@ -45,24 +45,52 @@ if (playerSpeedY > gravityTerminalSpeed) {
 }
 
 /** Player collision Y **/
-var playerNextPositionY = y + playerSpeedY;
 
-if (place_meeting(x, playerNextPositionY, oGround))
+if (place_meeting(x, y + playerSpeedY, oGround))
 {
 	playerSpeedY = 0;
 	
 	setPlayerOnGround(true);
 }
+
+var platformCollisionInstance = noone;
+var numberOfPlatformsplatforms = instance_number(oJumpThroughPlatform);
+
+for (var i = 0; i < numberOfPlatformsplatforms; i++) 
+{
+	var platformInstance = instance_find(oJumpThroughPlatform, i);
+	
+	if (
+		place_meeting(x, y + playerSpeedY, platformInstance) && 
+		floor(y) <= platformInstance.bbox_top
+	)
+	{	
+		platformCollisionInstance = platformInstance;
+	}	
+}
+
+if (platformCollisionInstance != noone) {	
+	playerSpeedY = 0;
+	
+	setPlayerOnGround(true);
+}
+
+/*
+var platformCheck = false;
 
 if (
-	place_meeting(x, playerNextPositionY, oJumpThroughPlatform) && 
-	floor(playerNextPositionY) <= oJumpThroughPlatform.bbox_top
-)
+	playerSpeedY > 0 && 
+	place_meeting(x, y + playerSpeedY, oJumpThroughPlatform) && 
+	floor(y) <= oJumpThroughPlatform.bbox_top
+) 
 {
+	platformCheck = true;
+	
 	playerSpeedY = 0;
 	
 	setPlayerOnGround(true);
 }
+*/
 
 y += playerSpeedY;
 
@@ -87,9 +115,7 @@ if (abs(playerSpeedY) > 0)
 //show_debug_message("Number of jumps " + string(playerJumps));
 //show_debug_message("Number of max jumps " + string(playerMaxJumps));
 //show_debug_message("On ground " + string(playerOnGround));
-show_debug_message("Player position " + string(y));
-show_debug_message("Player position diff " + string(playerNextPositionY - y));
-show_debug_message("Player next position " + string(playerNextPositionY));
-show_debug_message("Player next position floor " + string(floor(playerNextPositionY)));
+//show_debug_message("Platform check " + string(platformCheck));
+//show_debug_message("Player position " + string(y));
 //show_debug_message("Platform top " + string(oJumpThroughPlatform.bbox_top));
 //show_debug_message("Platform bottom " + string(oJumpThroughPlatform.bbox_bottom));
