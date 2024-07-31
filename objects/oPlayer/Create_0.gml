@@ -19,3 +19,10 @@ playerOnGround = false;
 playerJumpForce = -5;
 playerJumps = 0;
 playerMaxJumps = 2;
+
+platformCollisionInstance = noone;
+jumpThroughPlatformCollisionInstance = noone;
+
+
+// Quality options
+snapToColliders = true;

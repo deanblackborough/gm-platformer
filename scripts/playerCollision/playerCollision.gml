@@ -26,13 +26,14 @@ function setPlayerOnGround(_state, _jump = false)
 {
 	playerOnGround = _state;
 	
-	if (_state == true) 
+	if (_state == true)
 	{
 		playerJumps = 0;	
 	}
 	
 	if (_state == false && _jump == true) 
 	{
-		playerJumps++;	
+		playerJumps++;
+		jumpThroughPlatformCollisionInstance = noone;
 	}
 }

@@ -14,7 +14,10 @@ playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
 if (place_meeting(x + playerSpeedX, y, oGround)) 
 {
-	snapToColliderOnX(playerSpeedX, oGround);
+	if (snapToColliders) 
+	{
+		snapToColliderOnX(playerSpeedX, oGround);
+	}
 	playerSpeedX = 0;
 }
 
@@ -33,7 +36,12 @@ if (playerOnGround)
 }
 
 
-if (inputJumpKeyPressed > 0 && playerJumps < playerMaxJumps) 
+if (inputJumpKeyPressed && inputDownKey && platformCollisionInstance != noone) 
+{
+	jumpThroughPlatformCollisionInstance = platformCollisionInstance
+}
+
+if (inputJumpKeyPressed > 0 && playerJumps < playerMaxJumps && !inputDownKey) 
 {
 	playerSpeedY = playerJumpForce;
 	
@@ -53,7 +61,7 @@ if (place_meeting(x, y + playerSpeedY, oGround))
 	setPlayerOnGround(true);
 }
 
-var platformCollisionInstance = noone;
+platformCollisionInstance = noone;
 var numberOfPlatformsplatforms = instance_number(oJumpThroughPlatform);
 
 for (var i = 0; i < numberOfPlatformsplatforms; i++) 
@@ -62,35 +70,25 @@ for (var i = 0; i < numberOfPlatformsplatforms; i++)
 	
 	if (
 		place_meeting(x, y + playerSpeedY, platformInstance) && 
-		floor(y) <= platformInstance.bbox_top
+		floor(y) <= platformInstance.bbox_top && 
+		jumpThroughPlatformCollisionInstance != platformInstance
 	)
 	{	
 		platformCollisionInstance = platformInstance;
 	}	
 }
 
-if (platformCollisionInstance != noone) {	
-	playerSpeedY = 0;
-	
-	setPlayerOnGround(true);
-}
-
-/*
-var platformCheck = false;
-
-if (
-	playerSpeedY > 0 && 
-	place_meeting(x, y + playerSpeedY, oJumpThroughPlatform) && 
-	floor(y) <= oJumpThroughPlatform.bbox_top
-) 
+if (platformCollisionInstance != noone) 
 {
-	platformCheck = true;
+	if (snapToColliders) 
+	{
+		snapToColliderOnY(playerSpeedY, platformCollisionInstance);
+	}
 	
 	playerSpeedY = 0;
 	
 	setPlayerOnGround(true);
 }
-*/
 
 y += playerSpeedY;
 
