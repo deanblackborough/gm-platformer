@@ -13,6 +13,7 @@ they can build from there.
 - Player collision with ground objects on x axis
 - Player collision with ground objects on y axis
 - Player collision with Jump through platforms
+- Player can drop through jump through platforms with down + jump
 - Player jumping (up to a max jump setting)
 - Sprite switches based on movement
 - Sprite faces correct direction
@@ -20,14 +21,13 @@ they can build from there.
 ## Working on
 
 - Collisions (In progress)
-- Platforms (In progress)
-- Jump through platforms & dropping down (In Progress)
 - Moving platforms
 - Dashing/Dodging/Rolling
 - Wall climb and Wall hang
 - Breakable walls/platforms
 - Ladders
-
+- Player attack
+- HUD
 
 ## How to run
 
