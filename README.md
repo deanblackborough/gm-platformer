@@ -1,22 +1,30 @@
-# Game Maker Platformer
+# Game Maker Platformer (Starter project)
 
 ## Description
 
-A basic platformer for Game Maker, creating this as a starting point for my kids, I'll get all the basics working and then 
-they can build from there.
+A basic platformer starter project for Game Maker. I'm creating this as a starting point for myself and my kids, I'll get all the basics working for them and then we can all create our own games.
+
+I'm adding many more comments that I would normally, these are to explain what each section of code does so my kids can easily see which parts of the code they may need to modify.
+
+I'm only building the basics of each feature, if you decide to use this starter project you are probably going to need to tweak things here and there.
+
+I've added showDebug variables to some of the object create events, if set to true these will output some useful values from the step event so you can see what is happening.
 
 ![Screenshot of Progress](screenshot.png "Basic Screenshot")
 
+## Controls
+
+Check the playerInput script file, the controls should be what you expect though.
+
 ## Features
 
-- Player moment - left & right
-- Player collision with ground objects on x axis
-- Player collision with ground objects on y axis
+- Player moment - left, right, jump
+- Gravity setting and terminal velocity setting
+- Max jumps setting
+- Simple player collision with ground 
 - Player collision with Jump through platforms
-- Player can drop through jump through platforms with down + jump
-- Player jumping (up to a max jump setting)
-- Sprite switches based on movement
-- Sprite faces correct direction
+- Players can drop through jump through platforms with down + jump
+- Player sprites for idle, running and jumping
 
 ## Working on
 
