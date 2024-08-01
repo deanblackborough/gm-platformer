@@ -25,4 +25,4 @@ jumpThroughPlatformCollisionInstance = noone;
 
 
 // Quality options
-snapToColliders = true;
+snapToColliders = false;
