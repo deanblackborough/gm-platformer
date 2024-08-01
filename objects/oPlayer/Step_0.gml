@@ -135,7 +135,7 @@ if (movingJumpThroughPlatformInstance != noone)
 		snapToColliderOnY(playerSpeedY, movingJumpThroughPlatformInstance);
 	}
 	
-	playerSpeedY = 0;
+	y += movingJumpThroughPlatformInstance.ySpeed;
 	
 	setPlayerOnGround(true);
 }

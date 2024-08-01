@@ -17,6 +17,9 @@ if (x < xprevious)
 	xSpeed = -xSpeed;		
 }
 
+// Calculate y-speed
+ySpeed = (y - yprevious) / (delta_time / 1000000);
+
 if (showDebug) 
 {
 	show_debug_message("Radius: " + string(radius));
@@ -27,4 +30,5 @@ if (showDebug)
 	show_debug_message("X Speed: " + string(xSpeed));
 	show_debug_message("Y start: " + string(ystart));
 	show_debug_message("Y: " + string(y));
+	show_debug_message("Y Speed: " + string(ySpeed));
 }
