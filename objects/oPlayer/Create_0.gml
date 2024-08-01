@@ -20,9 +20,13 @@ playerJumpForce = -5;
 playerJumps = 0;
 playerMaxJumps = 2;
 
+// Jump through platforms
 jumpThroughPlatformInstance = noone;
 activeJumpThroughPlatformInstance = noone;
 
+// Moving jump through platforms
+movingJumpThroughPlatformInstance = noone;
+activeMovingJumpThroughPlatformInstance = noone;
 
 // Quality options
 snapToColliders = false;

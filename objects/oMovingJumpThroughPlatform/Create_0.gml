@@ -8,5 +8,8 @@
 
 angle = 0;
 
+xSpeed = 0;
+ySpeed = 0;
+
 // Debugging
-showDebug = false;
+showDebug = true;

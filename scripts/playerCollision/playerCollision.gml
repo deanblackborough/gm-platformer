@@ -34,6 +34,9 @@ function setPlayerOnGround(_state, _jump = false)
 	if (_state == false && _jump == true) 
 	{
 		playerJumps++;
+		
+		// Reset active platforms as player is no longer touching platforms
 		activeJumpThroughPlatformInstance = noone;
+		activeMovingJumpThroughPlatformInstance = noone;
 	}
 }
