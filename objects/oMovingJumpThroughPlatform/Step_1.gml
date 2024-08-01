@@ -12,6 +12,10 @@ if (moveInY == true)
 }
 
 xSpeed = point_distance(xprevious, yprevious, x, y);
+if (x < xprevious) 
+{
+	xSpeed = -xSpeed;		
+}
 
 if (showDebug) 
 {
