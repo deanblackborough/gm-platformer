@@ -1,9 +1,11 @@
 
-moveInX = true;
-moveInY = false;
+// Variables for object
 
-radius = 40;
+// moveInX = Bool
+// moveInY = Bool
+// rotationSpeed = Real
+// radius = Real
+
 angle = 0;
-rotationSpeed = 0.040;
 
-showDebug = true;
+showDebug = false;

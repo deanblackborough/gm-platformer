@@ -1,11 +1,11 @@
 angle += rotationSpeed;
 
-if (moveInY)
+if (moveInX == true)
 {
 	x = xstart + cos(angle) * radius;
 }
 
-if (moveInX) 
+if (moveInY == true) 
 {
 	y = ystart + sin(angle) * radius;
 }
