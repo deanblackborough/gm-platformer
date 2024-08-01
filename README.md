@@ -21,7 +21,7 @@ they can build from there.
 ## Working on
 
 - Collisions (In progress)
-- Moving platforms
+- Moving platforms (In progress)
 - Dashing/Dodging/Rolling
 - Wall climb and Wall hang
 - Breakable walls/platforms

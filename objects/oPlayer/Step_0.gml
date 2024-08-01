@@ -9,7 +9,12 @@ if (playerMovementDirection != 0)
 }
 
 
-/** X Collision **/
+/*****************************************
+**
+** Player collision X 
+**
+*****************************************/
+
 playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
 if (place_meeting(x + playerSpeedX, y, oGround)) 
@@ -29,18 +34,19 @@ x += playerSpeedX;
 /** Player movment Y **/
 playerSpeedY += gravitySpeed;
 
-
+// If player is on the ground and reset the jumps
 if (playerOnGround) 
 {
 	playerJumps = 0;	
 }
 
-
-if (inputJumpKeyPressed && inputDownKey && platformCollisionInstance != noone) 
+// Record platform we want to drop down through
+if (inputJumpKeyPressed && inputDownKey && jumpThroughPlatformInstance != noone) 
 {
-	jumpThroughPlatformCollisionInstance = platformCollisionInstance
+	activeJumpThroughPlatformInstance = jumpThroughPlatformInstance
 }
 
+// Jump the player
 if (inputJumpKeyPressed > 0 && playerJumps < playerMaxJumps && !inputDownKey) 
 {
 	playerSpeedY = playerJumpForce;
@@ -48,12 +54,18 @@ if (inputJumpKeyPressed > 0 && playerJumps < playerMaxJumps && !inputDownKey)
 	setPlayerOnGround(false, true);
 }
 
+// Limit y speed to terminal velocity
 if (playerSpeedY > gravityTerminalSpeed) {
 	playerSpeedY = gravityTerminalSpeed;
 }
 
-/** Player collision Y **/
+/*****************************************
+**
+** Player collision Y 
+**
+*****************************************/
 
+// Collision with the ground objects
 if (place_meeting(x, y + playerSpeedY, oGround))
 {
 	playerSpeedY = 0;
@@ -61,28 +73,30 @@ if (place_meeting(x, y + playerSpeedY, oGround))
 	setPlayerOnGround(true);
 }
 
-platformCollisionInstance = noone;
-var numberOfPlatformsplatforms = instance_number(oJumpThroughPlatform);
+// See if we are colliding with a jump through platform
+jumpThroughPlatformInstance = noone;
+var numberOfJumpThroughPlatforms = instance_number(oJumpThroughPlatform);
 
-for (var i = 0; i < numberOfPlatformsplatforms; i++) 
+for (var i = 0; i < numberOfJumpThroughPlatforms; i++) 
 {
-	var platformInstance = instance_find(oJumpThroughPlatform, i);
+	var localJumpThroughPlatformInstance = instance_find(oJumpThroughPlatform, i);
 	
 	if (
-		place_meeting(x, y + playerSpeedY, platformInstance) && 
-		floor(y) <= platformInstance.bbox_top && 
-		jumpThroughPlatformCollisionInstance != platformInstance
+		place_meeting(x, y + playerSpeedY, localJumpThroughPlatformInstance) && 
+		floor(y) <= localJumpThroughPlatformInstance.bbox_top && 
+		activeJumpThroughPlatformInstance != localJumpThroughPlatformInstance
 	)
 	{	
-		platformCollisionInstance = platformInstance;
+		jumpThroughPlatformInstance = localJumpThroughPlatformInstance;
 	}	
 }
 
-if (platformCollisionInstance != noone) 
+// Collide with a jump through platform
+if (jumpThroughPlatformInstance != noone) 
 {
 	if (snapToColliders) 
 	{
-		snapToColliderOnY(playerSpeedY, platformCollisionInstance);
+		snapToColliderOnY(playerSpeedY, jumpThroughPlatformInstance);
 	}
 	
 	playerSpeedY = 0;
@@ -90,6 +104,7 @@ if (platformCollisionInstance != noone)
 	setPlayerOnGround(true);
 }
 
+// Move the player along x
 y += playerSpeedY;
 
 
@@ -109,11 +124,11 @@ if (abs(playerSpeedY) > 0)
 	sprite_index = playerSpriteJump;	
 }
 
-/** Debug messages for jumping **/
-//show_debug_message("Number of jumps " + string(playerJumps));
-//show_debug_message("Number of max jumps " + string(playerMaxJumps));
-//show_debug_message("On ground " + string(playerOnGround));
-//show_debug_message("Platform check " + string(platformCheck));
-//show_debug_message("Player position " + string(y));
-//show_debug_message("Platform top " + string(oJumpThroughPlatform.bbox_top));
-//show_debug_message("Platform bottom " + string(oJumpThroughPlatform.bbox_bottom));
+if (showDebug == true)
+{
+	show_debug_message("Number of jumps: " + string(playerJumps));
+	show_debug_message("Number of max jumps: " + string(playerMaxJumps));
+	show_debug_message("On ground: " + string(playerOnGround));
+	show_debug_message("Player position X: " + string(x));
+	show_debug_message("Player position Y: " + string(y));
+}
