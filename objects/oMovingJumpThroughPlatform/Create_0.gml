@@ -10,5 +10,3 @@ angle = 0;
 
 xSpeed = 0;
 ySpeed = 0;
-
-deltaY = 0;

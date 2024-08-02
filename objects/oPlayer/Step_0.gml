@@ -23,14 +23,9 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 	{
 		snapToColliderOnX(playerSpeedX, oGround);
 	}
+	
 	playerSpeedX = 0;
 }
-
-if (instance_exists(movingJumpThroughPlatformInstance))
-{
-	x += movingJumpThroughPlatformInstance.xSpeed;
-}
-
 
 // Move the player along x
 x += playerSpeedX;
@@ -130,7 +125,7 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 // Collide with a moving jump through platform
 if (movingJumpThroughPlatformInstance != noone) 
 {
-	
+	x += movingJumpThroughPlatformInstance.xSpeed;
 	y += movingJumpThroughPlatformInstance.ySpeed;
 	
 	if (snapToColliders) 
@@ -141,12 +136,19 @@ if (movingJumpThroughPlatformInstance != noone)
 	setPlayerOnGround(true);
 	
 	playerSpeedY = 0;
-	
-	show_debug_message("Player on ground: " + string(playerOnGround));
-	show_debug_message("Moving platform y: " + string(movingJumpThroughPlatformInstance.y));
-	show_debug_message("Player y: " + string(y));
 }
 
+// Reset the active jump through platform instance if not colliding anymore
+if (!place_meeting(x, y + 1, activeJumpThroughPlatformInstance))
+{
+	activeJumpThroughPlatformInstance = noone;
+}
+
+// Reset the active moving jump through platform instance if not colliding anymore
+if (!place_meeting(x, y + 1, activeMovingJumpThroughPlatformInstance))
+{
+	activeMovingJumpThroughPlatformInstance = noone;
+}
 
 // Move the player along x
 y += playerSpeedY;
@@ -166,4 +168,12 @@ if (abs(playerSpeedX) > 0)
 if (abs(playerSpeedY) > 0 && playerOnGround != true) 
 {
 	sprite_index = playerSpriteJump;	
+}
+
+if (showDebug) 
+{
+	show_debug_message("Player X: ", string(x));	
+	show_debug_message("Player Y: ", string(y));	
+	show_debug_message("Player Speed X: ", string(playerSpeedX));	
+	show_debug_message("Player Spped Y: ", string(playerSpeedY));	
 }
