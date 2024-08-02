@@ -27,9 +27,6 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 	playerSpeedX = 0;
 }
 
-// Move the player along x
-x += playerSpeedX;
-
 
 /** Player movment Y **/
 playerSpeedY += gravitySpeed;
@@ -124,14 +121,14 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 
 // Collide with a moving jump through platform
 if (movingJumpThroughPlatformInstance != noone) 
-{
+{	
 	x += movingJumpThroughPlatformInstance.xSpeed;
 	y += movingJumpThroughPlatformInstance.ySpeed;
 	
-	if (snapToColliders) 
-	{
-		snapToColliderOnY(playerSpeedY, movingJumpThroughPlatformInstance);
-	}
+	show_debug_message("Player X delta: " + string(x - xprevious));	
+	show_debug_message("Platform X delta: " + string(movingJumpThroughPlatformInstance.x - movingJumpThroughPlatformInstance.xprevious));	
+	show_debug_message("Player y delta: " + string(y - yprevious));	
+	show_debug_message("Platform y delta: " + string(movingJumpThroughPlatformInstance.y - movingJumpThroughPlatformInstance.yprevious));	
 	
 	setPlayerOnGround(true);
 	
@@ -151,6 +148,7 @@ if (!place_meeting(x, y + 1, activeMovingJumpThroughPlatformInstance))
 }
 
 // Move the player along x
+x += playerSpeedX;
 y += playerSpeedY;
 
 
