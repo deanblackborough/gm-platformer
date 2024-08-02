@@ -29,7 +29,6 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 if (instance_exists(movingJumpThroughPlatformInstance))
 {
 	x += movingJumpThroughPlatformInstance.xSpeed;
-	//y += movingJumpThroughPlatformInstance.ySpeed;
 }
 
 
@@ -120,7 +119,7 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 	
 	if (
 		place_meeting(x, y + playerSpeedY, localMovingJumpThroughPlatformInstance) && 
-		floor(y) <= localMovingJumpThroughPlatformInstance.bbox_top && 
+		floor(y) <= ceil(localMovingJumpThroughPlatformInstance.bbox_top - localMovingJumpThroughPlatformInstance.ySpeed) && 
 		activeMovingJumpThroughPlatformInstance != localMovingJumpThroughPlatformInstance
 	)
 	{	
@@ -128,25 +127,24 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 	}	
 }
 
-if (playerSpeedY > 0) {
-	show_debug_message("Player Speed Y: " + string(playerSpeedY));
-}
-
-if (oMovingJumpThroughPlatform.ySpeed > 0) {
-	show_debug_message("Platform Speed: " + string(oMovingJumpThroughPlatform.ySpeed));	
-}
-
 // Collide with a moving jump through platform
 if (movingJumpThroughPlatformInstance != noone) 
 {
+	
+	y += movingJumpThroughPlatformInstance.ySpeed;
+	
 	if (snapToColliders) 
 	{
 		snapToColliderOnY(playerSpeedY, movingJumpThroughPlatformInstance);
 	}
 	
-	playerSpeedY = movingJumpThroughPlatformInstance.ySpeed;
-	
 	setPlayerOnGround(true);
+	
+	playerSpeedY = 0;
+	
+	show_debug_message("Player on ground: " + string(playerOnGround));
+	show_debug_message("Moving platform y: " + string(movingJumpThroughPlatformInstance.y));
+	show_debug_message("Player y: " + string(y));
 }
 
 
@@ -165,24 +163,7 @@ if (abs(playerSpeedX) > 0)
 	sprite_index = playerSpriteRun;		
 }
 
-if (abs(playerSpeedY) > 0) 
+if (abs(playerSpeedY) > 0 && playerOnGround != true) 
 {
 	sprite_index = playerSpriteJump;	
-}
-
-if (showDebug == true)
-{
-	//show_debug_message("Number of jumps: " + string(playerJumps));
-	//show_debug_message("Number of max jumps: " + string(playerMaxJumps));
-	show_debug_message("On ground: " + string(playerOnGround));
-	//show_debug_message("Player position X: " + string(x));
-	//show_debug_message("Player position Y: " + string(y));
-	//show_debug_message("Player vSpeed: " + string(vspeed));
-	//show_debug_message("Jump through platform instance: " + string(jumpThroughPlatformInstance));
-	show_debug_message("Moving jump through platform instance: " + string(movingJumpThroughPlatformInstance));
-	if (instance_exists(movingJumpThroughPlatformInstance))
-	{
-		show_debug_message("Y Speed: " + string(movingJumpThroughPlatformInstance.ySpeed));	
-		show_debug_message("Y position " + string(movingJumpThroughPlatformInstance.y));		
-	}
 }

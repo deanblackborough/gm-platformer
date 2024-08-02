@@ -29,7 +29,7 @@ movingJumpThroughPlatformInstance = noone;
 activeMovingJumpThroughPlatformInstance = noone;
 
 // Quality options
-snapToColliders = false;
+snapToColliders = true;
 
 // Debugging
 showDebug = false;
