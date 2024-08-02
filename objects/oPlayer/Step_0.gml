@@ -29,6 +29,7 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 if (instance_exists(movingJumpThroughPlatformInstance))
 {
 	x += movingJumpThroughPlatformInstance.xSpeed;
+	//y += movingJumpThroughPlatformInstance.ySpeed;
 }
 
 
@@ -127,6 +128,14 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 	}	
 }
 
+if (playerSpeedY > 0) {
+	show_debug_message("Player Speed Y: " + string(playerSpeedY));
+}
+
+if (oMovingJumpThroughPlatform.ySpeed > 0) {
+	show_debug_message("Platform Speed: " + string(oMovingJumpThroughPlatform.ySpeed));	
+}
+
 // Collide with a moving jump through platform
 if (movingJumpThroughPlatformInstance != noone) 
 {
@@ -135,7 +144,7 @@ if (movingJumpThroughPlatformInstance != noone)
 		snapToColliderOnY(playerSpeedY, movingJumpThroughPlatformInstance);
 	}
 	
-	y += movingJumpThroughPlatformInstance.ySpeed;
+	playerSpeedY = movingJumpThroughPlatformInstance.ySpeed;
 	
 	setPlayerOnGround(true);
 }
@@ -173,7 +182,7 @@ if (showDebug == true)
 	show_debug_message("Moving jump through platform instance: " + string(movingJumpThroughPlatformInstance));
 	if (instance_exists(movingJumpThroughPlatformInstance))
 	{
-		//show_debug_message("X Speed: " + string(movingJumpThroughPlatformInstance.xSpeed));	
-		//show_debug_message("X position " + string(movingJumpThroughPlatformInstance.x));		
+		show_debug_message("Y Speed: " + string(movingJumpThroughPlatformInstance.ySpeed));	
+		show_debug_message("Y position " + string(movingJumpThroughPlatformInstance.y));		
 	}
 }

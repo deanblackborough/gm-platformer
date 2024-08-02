@@ -1,34 +1,36 @@
 
 angle += rotationSpeed;
 
+var targetX = x;
+var targetY = y;
 if (moveInX == true)
 {
-	x = xstart + cos(angle) * radius;
+	targetX = xstart + cos(angle) * radius;
 }
 
 if (moveInY == true) 
 {
-	y = ystart + sin(angle) * radius;
+	targetY = ystart + sin(angle) * radius;
+	
+	deltaY = y - yprevious;
 }
 
-xSpeed = point_distance(xprevious, yprevious, x, y);
-if (x < xprevious) 
-{
-	xSpeed = -xSpeed;		
-}
+xSpeed = targetX - x;
+ySpeed = targetY - y;
 
-// Calculate y-speed
-ySpeed = (y - yprevious) / (delta_time / 1000000);
+x += xSpeed;
+y += ySpeed;
 
 if (showDebug) 
 {
-	show_debug_message("Radius: " + string(radius));
-	show_debug_message("Start angle: " + string(angle));
-	show_debug_message("Rotation speed: " + string(rotationSpeed));
-	show_debug_message("X start: " + string(xstart));
-	show_debug_message("X: " + string(x));
-	show_debug_message("X Speed: " + string(xSpeed));
-	show_debug_message("Y start: " + string(ystart));
+	//show_debug_message("Radius: " + string(radius));
+	//show_debug_message("Start angle: " + string(angle));
+	//show_debug_message("Rotation speed: " + string(rotationSpeed));
+	//show_debug_message("X start: " + string(xstart));
+	//show_debug_message("X: " + string(x));
+	//show_debug_message("X Speed: " + string(xSpeed));
+	//show_debug_message("Y start: " + string(ystart));
 	show_debug_message("Y: " + string(y));
 	show_debug_message("Y Speed: " + string(ySpeed));
+	show_debug_message("Delta Y: " + string(deltaY));
 }
