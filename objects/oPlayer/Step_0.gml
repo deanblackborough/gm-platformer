@@ -138,23 +138,20 @@ if (movingJumpThroughPlatformInstance != noone)
 }
 
 if (
-	movingJumpThroughPlatformInstance != noone
-)
-{
-	show_debug_message("Active movig platform");
-}
-
-if (
 	movingJumpThroughPlatformInstance != noone && 
-	playerSpeedY <= 0 && 
 	place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.ySpeed, oGround) 
 )
 {
-	show_debug_message("Colliding with ground object");
+	if (abs(movingJumpThroughPlatformInstance.ySpeed) != 0) 
+	{
+		movingJumpThroughPlatformInstance = noone;	
+		y += 1;
+	}
 	
-	setPlayerOnGround(false);
-	
-	y += 1;
+	if (movingJumpThroughPlatformInstance != noone && abs(movingJumpThroughPlatformInstance.xSpeed) != 0) 
+	{
+		x += -movingJumpThroughPlatformInstance.xSpeed;	
+	}
 }
 
 /*****************************************

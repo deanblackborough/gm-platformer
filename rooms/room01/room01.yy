@@ -24,6 +24,7 @@
     {"name":"inst_6B4874FE","path":"rooms/room01/room01.yy",},
     {"name":"inst_6824B007","path":"rooms/room01/room01.yy",},
     {"name":"inst_16810922","path":"rooms/room01/room01.yy",},
+    {"name":"inst_B7DB54A","path":"rooms/room01/room01.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -61,6 +62,12 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oMovingJumpThroughPlatform","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"propertyId":{"name":"radius","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"40",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oMovingJumpThroughPlatform","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"propertyId":{"name":"moveInX","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"False",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.0,"scaleY":1.0,"x":0.0,"y":176.0,},
+        {"$GMRInstance":"v1","%Name":"inst_B7DB54A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_B7DB54A","objectId":{"name":"oMovingJumpThroughPlatform","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oMovingJumpThroughPlatform","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"propertyId":{"name":"moveInY","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"False",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oMovingJumpThroughPlatform","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"propertyId":{"name":"angleDelta","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.05",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oMovingJumpThroughPlatform","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"propertyId":{"name":"radius","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"15",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oMovingJumpThroughPlatform","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"propertyId":{"name":"moveInX","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":5.0,"scaleY":1.0,"x":144.0,"y":129.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4288253034,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
