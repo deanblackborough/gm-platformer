@@ -36,10 +36,10 @@ Check the playerInput script file, the controls should be what you expect though
 
 ## Working on
 
-- Super dash
 - Dashing
 - Slide
 - Rolling
+- Landing after fall
 - Wall climb & Wall hang
 - Breakable walls/platforms
 - Ladders

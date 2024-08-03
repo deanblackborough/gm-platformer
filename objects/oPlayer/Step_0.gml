@@ -17,6 +17,10 @@ if (playerMovementDirection != 0)
 
 playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
+if (abs(playerSpeedX) > 0 && inputShiftKey) {
+	playerSpeedX = playerMovementDirection * playerMovementSpeedDash;		
+}
+
 if (place_meeting(x + playerSpeedX, y, oGround)) 
 {
 	if (snapToColliders) 

@@ -1,6 +1,10 @@
 
 playerMovementSpeed = 2;
+playerMovementSpeedDash = 5;
 playerMovementDirection = 1;
+
+playerDashTimer = 0;
+playerDashTimerMax = 15;
 
 playerSpeedX = 0;
 playerSpeedY = 0;
