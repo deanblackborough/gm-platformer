@@ -1,5 +1,5 @@
 
-function snapToColliderOnX(_xSpeed, _colliderObject, _colliderSnap = 0.5)
+function snapToColliderOnX(_xSpeed, _colliderObject, _colliderSnap = 0.25)
 {
 	var snapToPlatform = _colliderSnap * sign(_xSpeed);
 	while (!place_meeting(x + snapToPlatform, y, _colliderObject)) 
@@ -8,7 +8,7 @@ function snapToColliderOnX(_xSpeed, _colliderObject, _colliderSnap = 0.5)
 	}
 }
 
-function snapToColliderOnY(_ySpeed, _colliderObject, _colliderSnap = 0.5)
+function snapToColliderOnY(_ySpeed, _colliderObject, _colliderSnap = 0.25)
 {
 	var snapToPlatform = _colliderSnap * sign(_ySpeed);
 	while (!place_meeting(x, y + snapToPlatform, _colliderObject)) 
@@ -34,6 +34,9 @@ function setPlayerOnGround(_state, _jump = false)
 	if (_state == false && _jump == true) 
 	{
 		playerJumps++;
+		
+		// Reset active platforms as player is no longer touching platforms
 		activeJumpThroughPlatformInstance = noone;
+		activeMovingJumpThroughPlatformInstance = noone;
 	}
 }

@@ -23,12 +23,9 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 	{
 		snapToColliderOnX(playerSpeedX, oGround);
 	}
+	
 	playerSpeedX = 0;
 }
-
-
-// Move the player along x
-x += playerSpeedX;
 
 
 /** Player movment Y **/
@@ -104,11 +101,49 @@ if (jumpThroughPlatformInstance != noone)
 	setPlayerOnGround(true);
 }
 
-// Move the player along x
+// See if we are colliding with a moving jump through platform
+movingJumpThroughPlatformInstance = noone;
+var numberOfMovingJumpThroughPlatforms = instance_number(oMovingJumpThroughPlatform);
+
+for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++) 
+{
+	var localMovingJumpThroughPlatformInstance = instance_find(oMovingJumpThroughPlatform, i);
+	
+	if (
+		place_meeting(x, y + playerSpeedY, localMovingJumpThroughPlatformInstance) && 
+		floor(y) <= ceil(localMovingJumpThroughPlatformInstance.bbox_top - localMovingJumpThroughPlatformInstance.ySpeed) && 
+		activeMovingJumpThroughPlatformInstance != localMovingJumpThroughPlatformInstance
+	)
+	{	
+		movingJumpThroughPlatformInstance = localMovingJumpThroughPlatformInstance;
+	}	
+}
+
+// Collide with a moving jump through platform
+if (movingJumpThroughPlatformInstance != noone) 
+{	
+	x += movingJumpThroughPlatformInstance.xSpeed;
+	y += movingJumpThroughPlatformInstance.ySpeed;
+	
+	setPlayerOnGround(true);
+	
+	playerSpeedY = 0;
+}
+
+/*****************************************
+**
+** Move the player
+**
+*****************************************/
+x += playerSpeedX;
 y += playerSpeedY;
 
 
-// Switch the sprites
+/*****************************************
+**
+** Handle sprites
+**
+*****************************************/
 if (playerSpeedX == 0) 
 {
 	sprite_index = playerSpriteIdle;	
@@ -119,16 +154,21 @@ if (abs(playerSpeedX) > 0)
 	sprite_index = playerSpriteRun;		
 }
 
-if (abs(playerSpeedY) > 0) 
+if (abs(playerSpeedY) > 0 && playerOnGround != true) 
 {
 	sprite_index = playerSpriteJump;	
 }
 
-if (showDebug == true)
+
+/*****************************************
+**
+** Debug messages
+**
+*****************************************/
+if (showDebug) 
 {
-	show_debug_message("Number of jumps: " + string(playerJumps));
-	show_debug_message("Number of max jumps: " + string(playerMaxJumps));
-	show_debug_message("On ground: " + string(playerOnGround));
-	show_debug_message("Player position X: " + string(x));
-	show_debug_message("Player position Y: " + string(y));
+	show_debug_message("Player X: ", string(x));	
+	show_debug_message("Player Y: ", string(y));	
+	show_debug_message("Player Speed X: ", string(playerSpeedX));	
+	show_debug_message("Player Spped Y: ", string(playerSpeedY));	
 }

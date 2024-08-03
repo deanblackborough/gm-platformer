@@ -3,10 +3,10 @@
 
 // moveInX = Bool
 // moveInY = Bool
-// rotationSpeed = Real
+// angleDelta = Real
 // radius = Real
 
 angle = 0;
 
-// Debugging
-showDebug = false;
+xSpeed = 0;
+ySpeed = 0;
