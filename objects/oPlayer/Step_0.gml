@@ -17,6 +17,21 @@ if (playerMovementDirection != 0)
 
 playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
+if (abs(playerSpeedX) > 0 && inputShiftKey) {
+	
+	playerDashTimer++;
+	
+	if (playerDashTimer < playerDashTimerMax) 
+	{
+		playerSpeedX = playerMovementDirection * playerMovementSpeedDash;
+	}
+}
+
+if (!inputShiftKey)
+{
+	playerDashTimer = 0;	
+}
+
 if (place_meeting(x + playerSpeedX, y, oGround)) 
 {
 	if (snapToColliders) 
@@ -29,7 +44,10 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 
 
 /** Player movment Y **/
-playerSpeedY += gravitySpeed;
+if (abs(playerSpeedX) < playerMovementSpeedDash)
+{
+	playerSpeedY += gravitySpeed;
+}
 
 // If player is on the ground and reset the jumps
 if (playerOnGround) 
@@ -178,10 +196,16 @@ if (abs(playerSpeedX) > 0)
 	sprite_index = playerSpriteRun;		
 }
 
+if (abs(playerSpeedX) > playerMovementSpeed) 
+{
+	sprite_index = playerSpriteDash;
+}	
+
 if (abs(playerSpeedY) > 0 && playerOnGround != true) 
 {
 	sprite_index = playerSpriteJump;	
 }
+
 
 
 /*****************************************

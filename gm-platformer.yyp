@@ -35,6 +35,7 @@
     {"id":{"name":"sGround","path":"sprites/sGround/sGround.yy",},},
     {"id":{"name":"sJumpThroughPlatform","path":"sprites/sJumpThroughPlatform/sJumpThroughPlatform.yy",},},
     {"id":{"name":"sMovingJumpThroughPlatform","path":"sprites/sMovingJumpThroughPlatform/sMovingJumpThroughPlatform.yy",},},
+    {"id":{"name":"sPlayerDash","path":"sprites/sPlayerDash/sPlayerDash.yy",},},
     {"id":{"name":"sPlayerIdle","path":"sprites/sPlayerIdle/sPlayerIdle.yy",},},
     {"id":{"name":"sPlayerJump","path":"sprites/sPlayerJump/sPlayerJump.yy",},},
     {"id":{"name":"sPlayerRun","path":"sprites/sPlayerRun/sPlayerRun.yy",},},
