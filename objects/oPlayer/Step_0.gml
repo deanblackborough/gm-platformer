@@ -38,9 +38,16 @@ if (playerOnGround)
 }
 
 // Record platform we want to drop down through
-if (inputJumpKeyPressed && inputDownKey && jumpThroughPlatformInstance != noone) 
+if (
+	inputJumpKeyPressed && inputDownKey && 
+	( 
+		jumpThroughPlatformInstance != noone ||
+		movingJumpThroughPlatformInstance != noone
+	)
+)
 {
 	activeJumpThroughPlatformInstance = jumpThroughPlatformInstance
+	activeMovingJumpThroughPlatformInstance = movingJumpThroughPlatformInstance
 }
 
 // Jump the player
@@ -110,9 +117,9 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 	var localMovingJumpThroughPlatformInstance = instance_find(oMovingJumpThroughPlatform, i);
 	
 	if (
+		activeMovingJumpThroughPlatformInstance != localMovingJumpThroughPlatformInstance &&
 		place_meeting(x, y + playerSpeedY, localMovingJumpThroughPlatformInstance) && 
-		floor(y) <= ceil(localMovingJumpThroughPlatformInstance.bbox_top - localMovingJumpThroughPlatformInstance.ySpeed) && 
-		activeMovingJumpThroughPlatformInstance != localMovingJumpThroughPlatformInstance
+		floor(y) <= ceil(localMovingJumpThroughPlatformInstance.bbox_top - localMovingJumpThroughPlatformInstance.ySpeed)
 	)
 	{	
 		movingJumpThroughPlatformInstance = localMovingJumpThroughPlatformInstance;

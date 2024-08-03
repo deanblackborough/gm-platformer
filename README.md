@@ -31,17 +31,18 @@ Check the playerInput script file, the controls should be what you expect though
 - Player collision with jump through platforms
 - Player collision with moving jump through platforms
 - Players can drop through jump through platforms with down + jump
+- Players can drop through moving jump through platforms with down + jump
 - Player sprites for idle, running and jumping
 
 ## Working on
 
-- Collisions (In progress)
-- Moving platforms (In progress)
-- Dashing/Dodging/Rolling
-- Wall climb and Wall hang
+- Super dash
+- Dashing
+- Slide
+- Rolling
+- Wall climb & Wall hang
 - Breakable walls/platforms
 - Ladders
-- Player attack
 - HUD
 
 ## How to run
