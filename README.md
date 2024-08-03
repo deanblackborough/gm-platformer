@@ -36,6 +36,7 @@ Check the playerInput script file, the controls should be what you expect though
 
 ## Working on
 
+- Moving platform can move you into walls (In progress)
 - Super dash
 - Dashing
 - Slide
@@ -53,6 +54,8 @@ Check the playerInput script file, the controls should be what you expect though
 
 ## Bugs & issues
 - If a moving jump through platform is moving in x and y there is a little player wobble when the platform moves in positive x and y
+- Moving platform can move you into walls
+
 
 ## Credits
 
