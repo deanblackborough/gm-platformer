@@ -23,20 +23,20 @@ Check the playerInput script file, the controls should be what you expect though
 
 ## Features
 
-- Player moment - left, right, jump
+- Player moment - left, right, jump & dash
 - Gravity setting and terminal velocity setting
 - Max jumps setting
 - Moving jump through platforms, move in x and/or y
 - Player collision with ground 
 - Player collision with jump through platforms
 - Player collision with moving jump through platforms
-- Players can drop through jump through platforms with down + jump
-- Players can drop through moving jump through platforms with down + jump
-- Player sprites for idle, running and jumping
+- Player can drop through jump through platforms with down + jump
+- Player can drop through moving jump through platforms with down + jump
+- Player single dash (gravity disabled during dash)
+- Player sprites for idle, running, jumping & dashing
 
 ## Working on
 
-- Dashing
 - Slide
 - Rolling
 - Landing after fall
