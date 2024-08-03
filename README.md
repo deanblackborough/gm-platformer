@@ -11,6 +11,7 @@ I'm only building the basics of each feature, if you decide to use this starter 
 I've added showDebug variables to some of the object create events, if set to true these will output some useful values from the step event so you can see what is happening.
 
 ![Screenshot of Progress](current-progress.png "Current progress")
+![Gif of Progress](current-progress.gif "Current progress animation")
 
 ### Key
 - Grey - ground/solid objects
