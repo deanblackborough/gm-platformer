@@ -12,6 +12,7 @@ I've added showDebug variables to some of the object create events, if set to tr
 
 ![Screenshot of Progress](current-progress.png "Current progress")
 
+### Key
 - Grey - ground/solid objects
 - Red - jump through platforms
 - Blue - moving jump through platforms
@@ -25,8 +26,10 @@ Check the playerInput script file, the controls should be what you expect though
 - Player moment - left, right, jump
 - Gravity setting and terminal velocity setting
 - Max jumps setting
-- Simple player collision with ground 
-- Player collision with Jump through platforms
+- Moving jump through platforms, move in x and/or y
+- Player collision with ground 
+- Player collision with jump through platforms
+- Player collision with moving jump through platforms
 - Players can drop through jump through platforms with down + jump
 - Player sprites for idle, running and jumping
 
@@ -46,6 +49,9 @@ Check the playerInput script file, the controls should be what you expect though
 - Download Game Maker
 - Download the Project
 - Open the Project in Game Maker and press play
+
+## Bugs & issues
+- If a moving jump through platform is moving in x and y there is a little player wobble when the platform moves in positive x and y
 
 ## Credits
 
