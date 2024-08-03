@@ -137,6 +137,26 @@ if (movingJumpThroughPlatformInstance != noone)
 	playerSpeedY = 0;
 }
 
+if (
+	movingJumpThroughPlatformInstance != noone
+)
+{
+	show_debug_message("Active movig platform");
+}
+
+if (
+	movingJumpThroughPlatformInstance != noone && 
+	playerSpeedY <= 0 && 
+	place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.ySpeed, oGround) 
+)
+{
+	show_debug_message("Colliding with ground object");
+	
+	setPlayerOnGround(false);
+	
+	y += 1;
+}
+
 /*****************************************
 **
 ** Move the player
