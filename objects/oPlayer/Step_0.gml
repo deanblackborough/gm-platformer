@@ -125,34 +125,25 @@ if (movingJumpThroughPlatformInstance != noone)
 	x += movingJumpThroughPlatformInstance.xSpeed;
 	y += movingJumpThroughPlatformInstance.ySpeed;
 	
-	show_debug_message("Player X delta: " + string(x - xprevious));	
-	show_debug_message("Platform X delta: " + string(movingJumpThroughPlatformInstance.x - movingJumpThroughPlatformInstance.xprevious));	
-	show_debug_message("Player y delta: " + string(y - yprevious));	
-	show_debug_message("Platform y delta: " + string(movingJumpThroughPlatformInstance.y - movingJumpThroughPlatformInstance.yprevious));	
-	
 	setPlayerOnGround(true);
 	
 	playerSpeedY = 0;
 }
 
-// Reset the active jump through platform instance if not colliding anymore
-if (!place_meeting(x, y + 1, activeJumpThroughPlatformInstance))
-{
-	activeJumpThroughPlatformInstance = noone;
-}
-
-// Reset the active moving jump through platform instance if not colliding anymore
-if (!place_meeting(x, y + 1, activeMovingJumpThroughPlatformInstance))
-{
-	activeMovingJumpThroughPlatformInstance = noone;
-}
-
-// Move the player along x
+/*****************************************
+**
+** Move the player
+**
+*****************************************/
 x += playerSpeedX;
 y += playerSpeedY;
 
 
-// Switch the sprites
+/*****************************************
+**
+** Handle sprites
+**
+*****************************************/
 if (playerSpeedX == 0) 
 {
 	sprite_index = playerSpriteIdle;	
@@ -168,6 +159,12 @@ if (abs(playerSpeedY) > 0 && playerOnGround != true)
 	sprite_index = playerSpriteJump;	
 }
 
+
+/*****************************************
+**
+** Debug messages
+**
+*****************************************/
 if (showDebug) 
 {
 	show_debug_message("Player X: ", string(x));	

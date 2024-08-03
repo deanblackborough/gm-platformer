@@ -1,5 +1,5 @@
 
-angle += rotationSpeed;
+angle += angleDelta;
 
 var targetX = x;
 var targetY = y;

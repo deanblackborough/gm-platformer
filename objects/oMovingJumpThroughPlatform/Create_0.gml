@@ -3,7 +3,7 @@
 
 // moveInX = Bool
 // moveInY = Bool
-// rotationSpeed = Real
+// angleDelta = Real
 // radius = Real
 
 angle = 0;
