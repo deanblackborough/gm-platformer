@@ -17,7 +17,7 @@ if (playerMovementDirection != 0)
 
 playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
-if (abs(playerSpeedX) > 0 && inputShiftKey) {
+if (abs(playerSpeedX) > 0 && inputShiftKey && playerOnGround) {
 	
 	playerDashTimer++;
 	
@@ -32,7 +32,7 @@ if (!inputShiftKey)
 	playerDashTimer = 0;	
 }
 
-if (abs(playerSpeedX) > 0 && inputSlideKey) {
+if (abs(playerSpeedX) > 0 && inputSlideKey && playerOnGround) {
 	
 	playerSlideTimer++;
 	
