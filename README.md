@@ -34,11 +34,17 @@ Check the playerInput script file, the controls should be what you expect though
 - Player collision with moving jump through platforms
 - Player can drop through jump through platforms with down + jump
 - Player can drop through moving jump through platforms with down + jump
-- Player single dash (gravity disabled during dash)
+- Player single dash (gravity disabled during dash) - (should be a ground dash)
 - Player sprites for idle, running, jumping & dashing
 
-## Working on
+## To Do
 
+- Dash should be a ground dash
+- Drop down animation when falling
+- Debug option to show colliders on objects, players
+- Solid platforms - for puzzles
+- Adjust movement for moving platforms, switch to target position on x and y rather than a circle radius
+- Air Dash
 - Slide
 - Rolling
 - Landing after fall
