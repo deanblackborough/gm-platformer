@@ -11,15 +11,15 @@
 targetX = xstart;
 targetY = ystart;
 
+deltaX = 0;
+deltaY = 0;
+
 if (moveInX == true)
 {
 	targetX = xstart + moveInXAmount;
 	
 	incrementX = true;
 }
-
-show_debug_message("Start X: " + string(xstart));
-show_debug_message("Target X: " + string(targetX));
 
 if (moveInY == true) 
 {

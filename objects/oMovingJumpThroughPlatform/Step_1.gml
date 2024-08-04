@@ -6,6 +6,7 @@ if (moveInX == true)
 	if (incrementX == true)
 	{
 		nextFrameX += moveInXSpeed;
+		deltaX = nextFrameX - xprevious;
 		
 		if (nextFrameX >= targetX) 
 		{
@@ -13,6 +14,7 @@ if (moveInX == true)
 		}
 	} else {
 		nextFrameX -= moveInXSpeed;
+		deltaX = nextFrameX - xprevious;
 		
 		if (nextFrameX <= xstart)
 		{
@@ -28,6 +30,7 @@ if (moveInY == true)
 	if (incrementY == true)
 	{
 		nextFrameY = y + moveInYSpeed;
+		deltaY = nextFrameY - yprevious;
 		
 		if (nextFrameY >= targetY) 
 		{
@@ -35,6 +38,7 @@ if (moveInY == true)
 		}
 	} else {
 		nextFrameY = y - moveInYSpeed;
+		deltaY = nextFrameY - yprevious;
 		
 		if (nextFrameY <= ystart)
 		{

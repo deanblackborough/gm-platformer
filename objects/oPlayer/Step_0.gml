@@ -164,7 +164,7 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 	if (
 		activeMovingJumpThroughPlatformInstance != localMovingJumpThroughPlatformInstance &&
 		place_meeting(x, y + playerSpeedY, localMovingJumpThroughPlatformInstance) && 
-		floor(y) <= ceil(localMovingJumpThroughPlatformInstance.bbox_top - localMovingJumpThroughPlatformInstance.ySpeed)
+		floor(y) <= ceil(localMovingJumpThroughPlatformInstance.bbox_top - localMovingJumpThroughPlatformInstance.deltaY)
 	)
 	{	
 		movingJumpThroughPlatformInstance = localMovingJumpThroughPlatformInstance;
@@ -174,8 +174,8 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 // Collide with a moving jump through platform
 if (movingJumpThroughPlatformInstance != noone) 
 {	
-	x += movingJumpThroughPlatformInstance.xSpeed;
-	y += movingJumpThroughPlatformInstance.ySpeed;
+	x += movingJumpThroughPlatformInstance.deltaX;
+	y += movingJumpThroughPlatformInstance.deltaY;
 	
 	setPlayerOnGround(true);
 	
@@ -184,18 +184,18 @@ if (movingJumpThroughPlatformInstance != noone)
 
 if (
 	movingJumpThroughPlatformInstance != noone && 
-	place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.ySpeed, oGround) 
+	place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.deltaY, oGround) 
 )
 {
-	if (abs(movingJumpThroughPlatformInstance.ySpeed) != 0) 
+	if (abs(movingJumpThroughPlatformInstance.deltaY) != 0) 
 	{
 		movingJumpThroughPlatformInstance = noone;	
 		y += 1;
 	}
 	
-	if (movingJumpThroughPlatformInstance != noone && abs(movingJumpThroughPlatformInstance.xSpeed) != 0) 
+	if (movingJumpThroughPlatformInstance != noone && abs(movingJumpThroughPlatformInstance.deltaX) != 0) 
 	{
-		x += -movingJumpThroughPlatformInstance.xSpeed;	
+		x += -movingJumpThroughPlatformInstance.deltaX;	
 	}
 }
 
