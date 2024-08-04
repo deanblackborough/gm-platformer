@@ -8,7 +8,8 @@ I'm adding many more comments that I would normally, these are to explain what e
 
 I'm only building the basics of each feature, if you decide to use this starter project you are probably going to need to tweak things here and there.
 
-I've added showDebug variables to some of the object create events, if set to true these will output some useful values from the step event so you can see what is happening.
+I've working on `showDebug` options. The intention is if you set it to true in the create event for an object useful values and 
+information will display to help explain what is happening - this is very much to do/work in progress.
 
 ## Current Progress
 
@@ -25,9 +26,10 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 
 ## Features
 
-- Player moment - left, right, jump & dash
+- Player moment - left, right, jump, ground dash & ground slide
 - Gravity setting and terminal velocity setting
 - Max jumps setting
+- Jump through platforms
 - Moving jump through platforms, move in x and/or y
 - Player collision with ground 
 - Player collision with jump through platforms
@@ -40,8 +42,6 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 
 ## In progress
 
-- Changing how platforms move
-- Need to update collision
 - Need to show debug values/ranges for moving platforms
 - You can slide and then end up in a ground object
 - Cooldown for sliding and dashing
@@ -68,6 +68,7 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 
 ## Bugs & issues
 - If a moving jump through platform is moving in x and y there is a little player wobble when the platform moves in positive x and y
+- You can get stuck if you are right at the edge of a moving platform and connect with a ground object
 
 ## Credits
 
