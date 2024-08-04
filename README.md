@@ -21,7 +21,7 @@ I've added showDebug variables to some of the object create events, if set to tr
 
 ## Controls
 
-Check the playerInput script file, the controls should be what you expect though.
+Check the `player/scripts/playerInput` script file, the controls should be what you expect though.
 
 ## Features
 
@@ -43,15 +43,11 @@ Check the playerInput script file, the controls should be what you expect though
 - Changing how platforms move
 - Need to update collision
 - Need to show debug values/ranges for moving platforms
-- Fix how we assign sprites at speed as it is wrong at the moment
 - You can slide and then end up in a ground object
-- You can dash when not on ground
-- You can slide when not on ground
-- You should be locked into sliding and dashing
+- Cooldown for sliding and dashing
 
 ## To Do
 
-- Dash should be a ground dash
 - Drop down animation when falling
 - Debug option to show colliders on objects, players
 - Solid platforms - for puzzles
