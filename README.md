@@ -34,14 +34,20 @@ Check the playerInput script file, the controls should be what you expect though
 - Player collision with moving jump through platforms
 - Player can drop through jump through platforms with down + jump
 - Player can drop through moving jump through platforms with down + jump
-- Player single dash (gravity disabled during dash) - (should be a ground dash)
-- Player sprites for idle, running, jumping & dashing
+- Player single ground dash (gravity disabled during dash) 
+- Player single ground slide
+- Player sprites for idle, running, jumping, dashing & slide
 
 ## In progress
 
 - Changing how platforms move
 - Need to update collision
 - Need to show debug values/ranges for moving platforms
+- Fix how we assign sprites at speed as it is wrong at the moment
+- You can slide and then end up in a ground object
+- You can dash when not on ground
+- You can slide when not on ground
+- You should be locked into sliding and dashing
 
 ## To Do
 
@@ -51,7 +57,6 @@ Check the playerInput script file, the controls should be what you expect though
 - Solid platforms - for puzzles
 - Adjust movement for moving platforms, switch to target position on x and y rather than a circle radius
 - Air Dash
-- Slide
 - Rolling
 - Landing after fall
 - Wall climb & Wall hang
