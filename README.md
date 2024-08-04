@@ -37,6 +37,12 @@ Check the playerInput script file, the controls should be what you expect though
 - Player single dash (gravity disabled during dash) - (should be a ground dash)
 - Player sprites for idle, running, jumping & dashing
 
+## In progress
+
+- Changing how platforms move
+- Need to update collision
+- Need to show debug values/ranges for moving platforms
+
 ## To Do
 
 - Dash should be a ground dash
