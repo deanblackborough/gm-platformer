@@ -17,8 +17,13 @@ if (playerMovementDirection != 0)
 
 playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
-if (abs(playerSpeedX) > 0 && inputShiftKey && playerOnGround) {
-	
+if (abs(playerSpeedX) > 0 && inputShiftKey && playerOnGround) 
+{
+	playerIsDashing = true;
+}
+
+if (playerIsDashing) 
+{
 	playerDashTimer++;
 	
 	if (playerDashTimer < playerDashTimerMax) 
@@ -27,13 +32,19 @@ if (abs(playerSpeedX) > 0 && inputShiftKey && playerOnGround) {
 	}
 }
 
-if (!inputShiftKey)
+if (!inputShiftKey && playerDashTimer > playerDashTimerMax)
 {
-	playerDashTimer = 0;	
+	playerDashTimer = 0;
+	playerIsDashing = false;
 }
 
-if (abs(playerSpeedX) > 0 && inputSlideKey && playerOnGround) {
-	
+if (abs(playerSpeedX) > 0 && inputSlideKey && playerOnGround) 
+{
+	playerIsSliding = true;
+}
+
+if (playerIsSliding) 
+{
 	playerSlideTimer++;
 	
 	if (playerSlideTimer < playerSlideTimerMax) 
@@ -42,9 +53,10 @@ if (abs(playerSpeedX) > 0 && inputSlideKey && playerOnGround) {
 	}
 }
 
-if (!inputSlideKey)
+if (!inputSlideKey && playerSlideTimer > playerSlideTimerMax)
 {
-	playerSlideTimer = 0;	
+	playerSlideTimer = 0;
+	playerIsSliding = false;
 }
 
 if (place_meeting(x + playerSpeedX, y, oGround)) 
@@ -211,12 +223,12 @@ if (abs(playerSpeedX) > 0)
 	sprite_index = playerSpriteRun;		
 }
 
-if (abs(playerSpeedX) > playerMovementSpeed) 
+if (playerIsSliding) 
 {
 	sprite_index = playerSpriteSlide;
 }
 
-if (abs(playerSpeedX) > playerMovementSpeedSlide) 
+if (playerIsDashing) 
 {
 	sprite_index = playerSpriteDash;
 }
