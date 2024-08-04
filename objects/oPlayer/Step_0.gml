@@ -17,8 +17,13 @@ if (playerMovementDirection != 0)
 
 playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
-if (abs(playerSpeedX) > 0 && inputShiftKey) {
-	
+if (abs(playerSpeedX) > 0 && inputShiftKey && playerOnGround) 
+{
+	playerIsDashing = true;
+}
+
+if (playerIsDashing) 
+{
 	playerDashTimer++;
 	
 	if (playerDashTimer < playerDashTimerMax) 
@@ -27,9 +32,31 @@ if (abs(playerSpeedX) > 0 && inputShiftKey) {
 	}
 }
 
-if (!inputShiftKey)
+if (!inputShiftKey && playerDashTimer > playerDashTimerMax)
 {
-	playerDashTimer = 0;	
+	playerDashTimer = 0;
+	playerIsDashing = false;
+}
+
+if (abs(playerSpeedX) > 0 && inputSlideKey && playerOnGround) 
+{
+	playerIsSliding = true;
+}
+
+if (playerIsSliding) 
+{
+	playerSlideTimer++;
+	
+	if (playerSlideTimer < playerSlideTimerMax) 
+	{
+		playerSpeedX = playerMovementDirection * playerMovementSpeedSlide;
+	}
+}
+
+if (!inputSlideKey && playerSlideTimer > playerSlideTimerMax)
+{
+	playerSlideTimer = 0;
+	playerIsSliding = false;
 }
 
 if (place_meeting(x + playerSpeedX, y, oGround)) 
@@ -137,7 +164,7 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 	if (
 		activeMovingJumpThroughPlatformInstance != localMovingJumpThroughPlatformInstance &&
 		place_meeting(x, y + playerSpeedY, localMovingJumpThroughPlatformInstance) && 
-		floor(y) <= ceil(localMovingJumpThroughPlatformInstance.bbox_top - localMovingJumpThroughPlatformInstance.ySpeed)
+		floor(y) <= ceil(localMovingJumpThroughPlatformInstance.bbox_top - localMovingJumpThroughPlatformInstance.deltaY)
 	)
 	{	
 		movingJumpThroughPlatformInstance = localMovingJumpThroughPlatformInstance;
@@ -147,8 +174,8 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 // Collide with a moving jump through platform
 if (movingJumpThroughPlatformInstance != noone) 
 {	
-	x += movingJumpThroughPlatformInstance.xSpeed;
-	y += movingJumpThroughPlatformInstance.ySpeed;
+	x += movingJumpThroughPlatformInstance.deltaX;
+	y += movingJumpThroughPlatformInstance.deltaY;
 	
 	setPlayerOnGround(true);
 	
@@ -157,18 +184,18 @@ if (movingJumpThroughPlatformInstance != noone)
 
 if (
 	movingJumpThroughPlatformInstance != noone && 
-	place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.ySpeed, oGround) 
+	place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.deltaY, oGround) 
 )
 {
-	if (abs(movingJumpThroughPlatformInstance.ySpeed) != 0) 
+	if (abs(movingJumpThroughPlatformInstance.deltaY) != 0) 
 	{
 		movingJumpThroughPlatformInstance = noone;	
 		y += 1;
 	}
 	
-	if (movingJumpThroughPlatformInstance != noone && abs(movingJumpThroughPlatformInstance.xSpeed) != 0) 
+	if (movingJumpThroughPlatformInstance != noone && abs(movingJumpThroughPlatformInstance.deltaX) != 0) 
 	{
-		x += -movingJumpThroughPlatformInstance.xSpeed;	
+		x += -movingJumpThroughPlatformInstance.deltaX;	
 	}
 }
 
@@ -196,10 +223,15 @@ if (abs(playerSpeedX) > 0)
 	sprite_index = playerSpriteRun;		
 }
 
-if (abs(playerSpeedX) > playerMovementSpeed) 
+if (playerIsSliding) 
+{
+	sprite_index = playerSpriteSlide;
+}
+
+if (playerIsDashing) 
 {
 	sprite_index = playerSpriteDash;
-}	
+}
 
 if (abs(playerSpeedY) > 0 && playerOnGround != true) 
 {

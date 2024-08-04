@@ -23,7 +23,14 @@ function getPlayerInput()
 		
 	inputShiftKey = clamp(inputShiftKey, 0, 1);
 	
+	inputSlideKey = keyboard_check(ord("C")) + 
+		gamepad_button_check(0, gp_face3);
+		
+	inputSlideKey = clamp(inputSlideKey, 0, 1);
+	
 	inputJumpKeyPressed = keyboard_check_pressed(vk_space) + 
 		gamepad_button_check_pressed(0, gp_face1);
+		
 	inputJumpKeyPressed = clamp(inputJumpKeyPressed, 0, 1);	
+
 }

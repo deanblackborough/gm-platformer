@@ -1,10 +1,17 @@
 
 playerMovementSpeed = 2;
-playerMovementSpeedDash = 6;
+playerMovementSpeedSlide = 6;
+playerMovementSpeedDash = 10;
+
 playerMovementDirection = 1;
 
+playerIsDashing = false;
 playerDashTimer = 0;
-playerDashTimerMax = 15;
+playerDashTimerMax = 12;
+
+playerIsSliding = false;
+playerSlideTimer = 0;
+playerSlideTimerMax = 12;
 
 playerSpeedX = 0;
 playerSpeedY = 0;
@@ -13,6 +20,7 @@ playerSprite = sPlayerIdle;
 playerSpriteIdle = sPlayerIdle;
 playerSpriteRun = sPlayerRun;
 playerSpriteDash = sPlayerDash;
+playerSpriteSlide = sPlayerSlide;
 playerSpriteJump = sPlayerJump;
 playerSpriteFacing = 1;
 

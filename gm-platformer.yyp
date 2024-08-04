@@ -42,6 +42,7 @@
     {"id":{"name":"sPlayerIdle","path":"sprites/sPlayerIdle/sPlayerIdle.yy",},},
     {"id":{"name":"sPlayerJump","path":"sprites/sPlayerJump/sPlayerJump.yy",},},
     {"id":{"name":"sPlayerRun","path":"sprites/sPlayerRun/sPlayerRun.yy",},},
+    {"id":{"name":"sPlayerSlide","path":"sprites/sPlayerSlide/sPlayerSlide.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

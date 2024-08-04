@@ -3,10 +3,27 @@
 
 // moveInX = Bool
 // moveInY = Bool
-// angleDelta = Real
-// radius = Real
+// moveInXSpped = float
+// moveInYSpeed = float
+// moveInXAmount = float
+// moveInYAmount = float
 
-angle = 0;
+targetX = xstart;
+targetY = ystart;
 
-xSpeed = 0;
-ySpeed = 0;
+deltaX = 0;
+deltaY = 0;
+
+if (moveInX == true)
+{
+	targetX = xstart + moveInXAmount;
+	
+	incrementX = true;
+}
+
+if (moveInY == true) 
+{
+	targetY = ystart + moveInYAmount;
+	
+	incrementY = true
+}
