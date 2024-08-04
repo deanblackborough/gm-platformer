@@ -32,6 +32,21 @@ if (!inputShiftKey)
 	playerDashTimer = 0;	
 }
 
+if (abs(playerSpeedX) > 0 && inputSlideKey) {
+	
+	playerSlideTimer++;
+	
+	if (playerSlideTimer < playerSlideTimerMax) 
+	{
+		playerSpeedX = playerMovementDirection * playerMovementSpeedSlide;
+	}
+}
+
+if (!inputSlideKey)
+{
+	playerSlideTimer = 0;	
+}
+
 if (place_meeting(x + playerSpeedX, y, oGround)) 
 {
 	if (snapToColliders) 
@@ -198,8 +213,13 @@ if (abs(playerSpeedX) > 0)
 
 if (abs(playerSpeedX) > playerMovementSpeed) 
 {
+	sprite_index = playerSpriteSlide;
+}
+
+if (abs(playerSpeedX) > playerMovementSpeedSlide) 
+{
 	sprite_index = playerSpriteDash;
-}	
+}
 
 if (abs(playerSpeedY) > 0 && playerOnGround != true) 
 {
