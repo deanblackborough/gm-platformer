@@ -44,7 +44,7 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 
 - Need to show debug values/ranges for moving platforms
 - You can slide and then end up in a ground object
-- Cooldown for sliding and dashing
+- Cooldown for sliding
 
 ## To Do
 
