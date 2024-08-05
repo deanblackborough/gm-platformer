@@ -1,18 +1,23 @@
 
 playerMovementSpeed = 2;
-playerMovementSpeedSlide = 6;
-playerMovementSpeedDash = 10;
 
 playerMovementDirection = 1;
 
+// Player Dashing
 playerIsDashing = false;
 playerDashTimer = 0;
 playerDashTimerMax = 12;
+playerDashSpeedMultiplier = 12;
+playerDashCooldownTimer = 0;
+playerDashCooldownTimerMax = 120;
 
+// Player sliding
 playerIsSliding = false;
 playerSlideTimer = 0;
 playerSlideTimerMax = 12;
-playerSlideSpeedMultiplier = 20;
+playerSlideSpeedMultiplier = 8;
+playerSlideCooldownTimer = 0;
+playerSlideCooldownTimerMax = 60;
 
 playerSpeedX = 0;
 playerSpeedY = 0;

@@ -8,18 +8,13 @@ if (playerMovementDirection != 0)
 	playerSpriteFacing = playerMovementDirection;
 }
 
-
-/*****************************************
-**
-** Player collision X 
-**
-*****************************************/
-
 playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
-if (abs(playerSpeedX) > 0 && inputShiftKey && playerOnGround) 
+// Dashing
+if (abs(playerSpeedX) > 0 && inputShiftKey && playerOnGround && playerDashCooldownTimer <= 0) 
 {
 	playerIsDashing = true;
+	playerDashCooldownTimer = playerDashCooldownTimerMax;
 }
 
 if (playerIsDashing) 
@@ -28,8 +23,17 @@ if (playerIsDashing)
 	
 	if (playerDashTimer < playerDashTimerMax) 
 	{
-		playerSpeedX = playerMovementDirection * playerMovementSpeedDash;
+		playerSpeedX = playerMovementDirection * playerDashSpeedMultiplier;
+	} 
+	else 
+	{
+		playerIsDashing = false;	
+		playerDashTimer = 0;
 	}
+}
+else 
+{
+	playerDashCooldownTimer--;	
 }
 
 if (!inputShiftKey && playerDashTimer > playerDashTimerMax)
@@ -38,9 +42,11 @@ if (!inputShiftKey && playerDashTimer > playerDashTimerMax)
 	playerIsDashing = false;
 }
 
-if (abs(playerSpeedX) > 0 && inputSlideKey && playerOnGround) 
+// Sliding
+if (abs(playerSpeedX) > 0 && inputSlideKey && playerOnGround &&  playerSlideCooldownTimer <= 0) 
 {
 	playerIsSliding = true;
+	playerSlideCooldownTimer = playerSlideCooldownTimerMax;
 }
 
 if (playerIsSliding) 
@@ -57,12 +63,23 @@ if (playerIsSliding)
 		playerSlideTimer = 0;
 	}
 }
+else 
+{
+	playerSlideCooldownTimer--;	
+}
 
 if (!inputSlideKey && playerSlideTimer > playerSlideTimerMax)
 {
 	playerSlideTimer = 0;
 	playerIsSliding = false;
 }
+
+
+/*****************************************
+**
+** Player collision X 
+**
+*****************************************/
 
 if (place_meeting(x + playerSpeedX, y, oGround)) 
 {
@@ -76,7 +93,7 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 
 
 /** Player movment Y **/
-if (abs(playerSpeedX) < playerMovementSpeedDash)
+if (playerIsDashing == false && playerIsSliding == false)
 {
 	playerSpeedY += gravitySpeed;
 }
