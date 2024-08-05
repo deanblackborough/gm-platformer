@@ -49,7 +49,12 @@ if (playerIsSliding)
 	
 	if (playerSlideTimer < playerSlideTimerMax) 
 	{
-		playerSpeedX = playerMovementDirection * playerMovementSpeedSlide;
+		playerSpeedX = playerMovementDirection * playerSlideSpeedMultiplier;
+	} 
+	else 
+	{
+		playerIsSliding = false;	
+		playerSlideTimer = 0;
 	}
 }
 
@@ -237,7 +242,6 @@ if (abs(playerSpeedY) > 0 && playerOnGround != true)
 {
 	sprite_index = playerSpriteJump;	
 }
-
 
 
 /*****************************************

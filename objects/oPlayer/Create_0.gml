@@ -12,6 +12,7 @@ playerDashTimerMax = 12;
 playerIsSliding = false;
 playerSlideTimer = 0;
 playerSlideTimerMax = 12;
+playerSlideSpeedMultiplier = 20;
 
 playerSpeedX = 0;
 playerSpeedY = 0;
