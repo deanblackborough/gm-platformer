@@ -1,6 +1,16 @@
 
 getPlayerInput();
 
+sprite_index = playerSpriteIdle;
+image_speed = 1;
+
+/*****************************************
+*
+* Player movement direction and 
+* sprite direction
+*
+*****************************************/
+
 playerMovementDirection = inputRightKey - inputLeftKey;
 
 if (playerMovementDirection != 0) 
@@ -8,9 +18,20 @@ if (playerMovementDirection != 0)
 	playerSpriteFacing = playerMovementDirection;
 }
 
+/*****************************************
+*
+* Set the player speed in x
+*
+*****************************************/
+
 playerSpeedX = playerMovementDirection * playerMovementSpeed;
 
-// Dashing
+/*****************************************
+*
+* Handle player dashing
+*
+*****************************************/
+
 if (abs(playerSpeedX) > 0 && inputShiftKey && playerOnGround && playerDashCooldownTimer <= 0) 
 {
 	playerIsDashing = true;
@@ -42,7 +63,12 @@ if (!inputShiftKey && playerDashTimer > playerDashTimerMax)
 	playerIsDashing = false;
 }
 
-// Sliding
+/*****************************************
+*
+* Handle the player sliding
+*
+*****************************************/
+
 if (abs(playerSpeedX) > 0 && inputSlideKey && playerOnGround &&  playerSlideCooldownTimer <= 0) 
 {
 	playerIsSliding = true;
@@ -76,9 +102,9 @@ if (!inputSlideKey && playerSlideTimer > playerSlideTimerMax)
 
 
 /*****************************************
-**
-** Player collision X 
-**
+*
+* Ground collision in x
+*
 *****************************************/
 
 if (place_meeting(x + playerSpeedX, y, oGround)) 
@@ -92,19 +118,29 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 }
 
 
-/** Player movment Y **/
+/*****************************************
+*
+* Assign gravity to the player
+*
+*****************************************/
+
 if (playerIsDashing == false && playerIsSliding == false)
 {
 	playerSpeedY += gravitySpeed;
 }
 
-// If player is on the ground and reset the jumps
+/*****************************************
+*
+* Player jumping and setup for dropping 
+* through platforms
+*
+*****************************************/
+
 if (playerOnGround) 
 {
 	playerJumps = 0;	
 }
 
-// Record platform we want to drop down through
 if (
 	inputJumpKeyPressed && inputDownKey && 
 	( 
@@ -113,11 +149,12 @@ if (
 	)
 )
 {
-	activeJumpThroughPlatformInstance = jumpThroughPlatformInstance
-	activeMovingJumpThroughPlatformInstance = movingJumpThroughPlatformInstance
+	activeJumpThroughPlatformInstance = jumpThroughPlatformInstance;
+	activeMovingJumpThroughPlatformInstance = movingJumpThroughPlatformInstance;
+	
+	setPlayerOnGround(false);
 }
 
-// Jump the player
 if (inputJumpKeyPressed > 0 && playerJumps < playerMaxJumps && !inputDownKey) 
 {
 	playerSpeedY = playerJumpForce;
@@ -125,18 +162,16 @@ if (inputJumpKeyPressed > 0 && playerJumps < playerMaxJumps && !inputDownKey)
 	setPlayerOnGround(false, true);
 }
 
-// Limit y speed to terminal velocity
 if (playerSpeedY > gravityTerminalSpeed) {
 	playerSpeedY = gravityTerminalSpeed;
 }
 
 /*****************************************
-**
-** Player collision Y 
-**
+*
+* Ground collision in y
+*
 *****************************************/
 
-// Collision with the ground objects
 if (place_meeting(x, y + playerSpeedY, oGround))
 {
 	playerSpeedY = 0;
@@ -144,7 +179,12 @@ if (place_meeting(x, y + playerSpeedY, oGround))
 	setPlayerOnGround(true);
 }
 
-// See if we are colliding with a jump through platform
+/*****************************************
+*
+* Collision with jump through platforms
+*
+*****************************************/
+
 jumpThroughPlatformInstance = noone;
 var numberOfJumpThroughPlatforms = instance_number(oJumpThroughPlatform);
 
@@ -162,7 +202,6 @@ for (var i = 0; i < numberOfJumpThroughPlatforms; i++)
 	}	
 }
 
-// Collide with a jump through platform
 if (jumpThroughPlatformInstance != noone) 
 {
 	if (snapToColliders) 
@@ -175,7 +214,12 @@ if (jumpThroughPlatformInstance != noone)
 	setPlayerOnGround(true);
 }
 
-// See if we are colliding with a moving jump through platform
+/*****************************************
+*
+* Collision with moving jump through platforms
+*
+*****************************************/
+
 movingJumpThroughPlatformInstance = noone;
 var numberOfMovingJumpThroughPlatforms = instance_number(oMovingJumpThroughPlatform);
 
@@ -193,7 +237,6 @@ for (var i = 0; i < numberOfMovingJumpThroughPlatforms; i++)
 	}	
 }
 
-// Collide with a moving jump through platform
 if (movingJumpThroughPlatformInstance != noone) 
 {	
 	x += movingJumpThroughPlatformInstance.deltaX;
@@ -222,50 +265,66 @@ if (
 }
 
 /*****************************************
-**
-** Move the player
-**
+*
+* Move the player
+*
 *****************************************/
+
 x += playerSpeedX;
 y += playerSpeedY;
 
 
 /*****************************************
-**
-** Handle sprites
-**
+*
+* Switch the sprite
+*
 *****************************************/
+
 if (playerSpeedX == 0) 
 {
 	sprite_index = playerSpriteIdle;	
+	image_speed = 1;
 }
 
 if (abs(playerSpeedX) > 0) 
 {
-	sprite_index = playerSpriteRun;		
+	sprite_index = playerSpriteRun;	
+	image_speed = 1;
 }
 
 if (playerIsSliding) 
 {
 	sprite_index = playerSpriteSlide;
+	image_speed = 1;
 }
 
 if (playerIsDashing) 
 {
 	sprite_index = playerSpriteDash;
+	image_speed = 1;
 }
 
-if (abs(playerSpeedY) > 0 && playerOnGround != true) 
+if (playerSpeedY < 0 && playerOnGround != true) 
 {
-	sprite_index = playerSpriteJump;	
+	sprite_index = playerSpriteJump;
+	image_speed = 0;
+	image_index = 0;
+}
+
+if (playerSpeedY > 0 && playerOnGround != true) 
+{
+	sprite_index = playerSpriteJump;
+	image_speed = 0;
+	image_index = 2;
 }
 
 
 /*****************************************
-**
-** Debug messages
-**
+*
+* Debug params
+*
 *****************************************/
+
 if (showDebug) 
 {
 	show_debug_message("Player X: ", string(x));	
