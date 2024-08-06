@@ -38,23 +38,20 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 - Player can drop through moving jump through platforms with down + jump
 - Player single ground dash (gravity disabled during dash) 
 - Player single ground slide
-- Player sprites for idle, running, jumping, dashing & slide
+- Ground slide and ground dash have a cooldown
+- Player sprites for idle, running, jumping (up and down), dashing & slide
 
 ## In progress
 
 - Need to show debug values/ranges for moving platforms
 - You can slide and then end up in a ground object
-- Cooldown for sliding
 
 ## To Do
 
-- Drop down animation when falling
 - Debug option to show colliders on objects, players
 - Solid platforms - for puzzles
-- Adjust movement for moving platforms, switch to target position on x and y rather than a circle radius
 - Air Dash
 - Rolling
-- Landing after fall
 - Wall climb & Wall hang
 - Breakable walls/platforms
 - Ladders
