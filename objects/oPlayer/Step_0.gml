@@ -100,7 +100,6 @@ if (!inputSlideKey && playerSlideTimer > playerSlideTimerMax)
 	playerIsSliding = false;
 }
 
-
 /*****************************************
 *
 * Ground collision in x
@@ -109,6 +108,7 @@ if (!inputSlideKey && playerSlideTimer > playerSlideTimerMax)
 
 if (place_meeting(x + playerSpeedX, y, oGround)) 
 {
+	
 	if (snapToColliders) 
 	{
 		snapToColliderOnX(playerSpeedX, oGround);
@@ -116,6 +116,7 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 	
 	playerSpeedX = 0;
 }
+
 
 
 /*****************************************
@@ -283,30 +284,35 @@ y += playerSpeedY;
 if (playerSpeedX == 0) 
 {
 	sprite_index = playerSpriteIdle;	
+	mask_index = playerSpriteIdle;	
 	image_speed = 1;
 }
 
 if (abs(playerSpeedX) > 0) 
 {
-	sprite_index = playerSpriteRun;	
+	sprite_index = playerSpriteRun;
+	mask_index = playerSpriteRun;
 	image_speed = 1;
 }
 
 if (playerIsSliding) 
 {
 	sprite_index = playerSpriteSlide;
+	mask_index = playerSpriteSlide;
 	image_speed = 1;
 }
 
 if (playerIsDashing) 
 {
 	sprite_index = playerSpriteDash;
+	mask_index = playerSpriteDash
 	image_speed = 1;
 }
 
 if (playerSpeedY < 0 && playerOnGround != true) 
 {
 	sprite_index = playerSpriteJump;
+	mask_index = playerSpriteJump;
 	image_speed = 0;
 	image_index = 0;
 }
@@ -314,6 +320,7 @@ if (playerSpeedY < 0 && playerOnGround != true)
 if (playerSpeedY > 0 && playerOnGround != true) 
 {
 	sprite_index = playerSpriteJump;
+	mask_index = playerSpriteJump;
 	image_speed = 0;
 	image_index = 2;
 }
