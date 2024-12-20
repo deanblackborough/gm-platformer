@@ -40,28 +40,22 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 - Player single ground slide
 - Ground slide and ground dash have a cooldown
 - Player sprites for idle, running, jumping (up and down), dashing & slide
+- Patrolling enemy base class - similar to moving platforms
 
 ## In progress
 
 - Need to show debug values/ranges for moving platforms
 - You can slide and then end up in a ground object
 
-## To Do
-
-- Debug option to show colliders on objects, players
-- Solid platforms - for puzzles
-- Air Dash
-- Rolling
-- Wall climb & Wall hang
-- Breakable walls/platforms
-- Ladders
-- HUD
-
 ## How to run
 
 - Download Game Maker
 - Download the Project
 - Open the Project in Game Maker and press play
+
+## Example usage
+
+Check out a game my Son is building using this starter kit [here](https://github.com/jackblackborough/platformer-starter)
 
 ## Bugs & issues
 - If a moving jump through platform is moving in x and y there is a little player wobble when the platform moves in positive x and y
