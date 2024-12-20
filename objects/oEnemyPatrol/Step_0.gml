@@ -4,22 +4,6 @@ getPlayerInput();
 sprite_index = enemySpriteIdle;
 image_speed = 1;
 
-/*****************************************
-*
-* Enemy movement direction an sprite facing
-*
-*****************************************/
-
-enemyMovementDirection = enemySpriteFacing
-
-/*****************************************
-*
-* Set the enemy speed in x
-*
-*****************************************/
-
-enemySpeedX = enemyMovementDirection * enemyMovementSpeed;
-
 
 /*****************************************
 *
@@ -65,6 +49,26 @@ if (place_meeting(x, y + enemySpeedY, oGround))
 	setPlayerOnGround(true);
 }
 
+var nextFrameX = x;
+if (incrementX == true)
+{
+	nextFrameX += enemySpeedX;
+	deltaX = nextFrameX - xprevious;
+		
+	if (nextFrameX >= targetX) 
+	{
+		incrementX = false;	
+	}
+} else {
+	nextFrameX -= enemySpeedX;
+	deltaX = nextFrameX - xprevious;
+		
+	if (nextFrameX <= xstart)
+	{
+		incrementX = true;	
+	}
+}
+
 
 /*****************************************
 *
@@ -72,7 +76,7 @@ if (place_meeting(x, y + enemySpeedY, oGround))
 *
 *****************************************/
 
-x += enemySpeedX;
+x = nextFrameX;
 y += enemySpeedY;
 
 
@@ -82,9 +86,18 @@ y += enemySpeedY;
 *
 *****************************************/
 
+if (incrementX = false) 
+{
+	enemySpriteFacing = -1;
+} 
+else 
+{
+	enemySpriteFacing = 1;
+}
+
 if (enemySpeedX == 0) 
 {
-	sprite_index = enemyrSpriteIdle;	
+	sprite_index = enemySpriteIdle;	
 	mask_index = enemySpriteIdle;	
 	image_speed = 1;
 }
