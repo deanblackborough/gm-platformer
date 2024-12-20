@@ -29,7 +29,7 @@
   "name":"gm-platformer",
   "resources":[
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},},
-    {"id":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},},
+    {"id":{"name":"oEnemyPatrol","path":"objects/oEnemyPatrol/oEnemyPatrol.yy",},},
     {"id":{"name":"oGround","path":"objects/oGround/oGround.yy",},},
     {"id":{"name":"oJumpThroughPlatform","path":"objects/oJumpThroughPlatform/oJumpThroughPlatform.yy",},},
     {"id":{"name":"oMovingJumpThroughPlatform","path":"objects/oMovingJumpThroughPlatform/oMovingJumpThroughPlatform.yy",},},
