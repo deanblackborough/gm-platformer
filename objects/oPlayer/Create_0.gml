@@ -47,6 +47,10 @@ activeJumpThroughPlatformInstance = noone;
 movingJumpThroughPlatformInstance = noone;
 activeMovingJumpThroughPlatformInstance = noone;
 
+// Player activated jump through platform
+playerActivatedJumpThroughPlatformInstance = noone;
+activePlayerActivatedJumpThroughPlatformInstance = noone;
+
 // Quality options
 snapToColliders = true;
 

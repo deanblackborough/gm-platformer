@@ -146,12 +146,14 @@ if (
 	inputJumpKeyPressed && inputDownKey && 
 	( 
 		jumpThroughPlatformInstance != noone ||
-		movingJumpThroughPlatformInstance != noone
+		movingJumpThroughPlatformInstance != noone || 
+		playerActivatedJumpThroughPlatformInstance != noone
 	)
 )
 {
 	activeJumpThroughPlatformInstance = jumpThroughPlatformInstance;
 	activeMovingJumpThroughPlatformInstance = movingJumpThroughPlatformInstance;
+	activePlayerActivatedJumpThroughPlatformInstance = playerActivatedJumpThroughPlatformInstance;
 	
 	setPlayerOnGround(false);
 }
@@ -214,6 +216,61 @@ if (jumpThroughPlatformInstance != noone)
 	
 	setPlayerOnGround(true);
 }
+
+/*****************************************
+*
+* Collision with player activated jump through platforms
+*
+*****************************************/
+
+if (instance_exists(playerActivatedJumpThroughPlatformInstance)) 
+{
+	playerActivatedJumpThroughPlatformInstance.sprite_index = playerActivatedJumpThroughPlatformInstance.initialSprite;	
+}
+
+
+var resetNumberOfPlayerActivatedJumpThroughPlatforms = instance_number(oPlayerActivatedJumpThroughPlatform);
+
+for (var i = 0; i < resetNumberOfPlayerActivatedJumpThroughPlatforms; i++) 
+{
+	var localPlayerActivatedJumpThroughPlatformInstance = instance_find(oPlayerActivatedJumpThroughPlatform, i);
+	localPlayerActivatedJumpThroughPlatformInstance.sprite_index = localPlayerActivatedJumpThroughPlatformInstance.initialSprite;	
+}
+
+playerActivatedJumpThroughPlatformInstance = noone;
+
+var numberOfPlayerActivatedJumpThroughPlatforms = instance_number(oPlayerActivatedJumpThroughPlatform);
+
+for (var i = 0; i < numberOfPlayerActivatedJumpThroughPlatforms; i++) 
+{
+	var localPlayerActivatedJumpThroughPlatformInstance = instance_find(oPlayerActivatedJumpThroughPlatform, i);
+	
+	if (
+		place_meeting(x, y + playerSpeedY, localPlayerActivatedJumpThroughPlatformInstance) && 
+		floor(y) <= localPlayerActivatedJumpThroughPlatformInstance.bbox_top && 
+		activePlayerActivatedJumpThroughPlatformInstance != localPlayerActivatedJumpThroughPlatformInstance
+	)
+	{	
+		playerActivatedJumpThroughPlatformInstance = localPlayerActivatedJumpThroughPlatformInstance;
+		
+		if (instance_exists(localPlayerActivatedJumpThroughPlatformInstance)) 
+		{
+			localPlayerActivatedJumpThroughPlatformInstance.sprite_index = localPlayerActivatedJumpThroughPlatformInstance.activeSprite;
+		}
+	}	
+}
+
+if (playerActivatedJumpThroughPlatformInstance != noone) 
+{
+	if (snapToColliders) 
+	{
+		snapToColliderOnY(playerSpeedY, playerActivatedJumpThroughPlatformInstance);
+	}
+	
+	playerSpeedY = 0;
+	
+	setPlayerOnGround(true);
+} 
 
 /*****************************************
 *
