@@ -1,0 +1,3 @@
+
+initialSprite = sPlayerActivatedJumpThroughPlatform;
+activeSprite = sPlayerActivatedJumpThroughPlatformActive; 

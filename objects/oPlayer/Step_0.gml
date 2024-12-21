@@ -223,7 +223,22 @@ if (jumpThroughPlatformInstance != noone)
 *
 *****************************************/
 
+if (instance_exists(playerActivatedJumpThroughPlatformInstance)) 
+{
+	playerActivatedJumpThroughPlatformInstance.sprite_index = playerActivatedJumpThroughPlatformInstance.initialSprite;	
+}
+
+
+var resetNumberOfPlayerActivatedJumpThroughPlatforms = instance_number(oPlayerActivatedJumpThroughPlatform);
+
+for (var i = 0; i < resetNumberOfPlayerActivatedJumpThroughPlatforms; i++) 
+{
+	var localPlayerActivatedJumpThroughPlatformInstance = instance_find(oPlayerActivatedJumpThroughPlatform, i);
+	localPlayerActivatedJumpThroughPlatformInstance.sprite_index = localPlayerActivatedJumpThroughPlatformInstance.initialSprite;	
+}
+
 playerActivatedJumpThroughPlatformInstance = noone;
+
 var numberOfPlayerActivatedJumpThroughPlatforms = instance_number(oPlayerActivatedJumpThroughPlatform);
 
 for (var i = 0; i < numberOfPlayerActivatedJumpThroughPlatforms; i++) 
@@ -237,6 +252,11 @@ for (var i = 0; i < numberOfPlayerActivatedJumpThroughPlatforms; i++)
 	)
 	{	
 		playerActivatedJumpThroughPlatformInstance = localPlayerActivatedJumpThroughPlatformInstance;
+		
+		if (instance_exists(localPlayerActivatedJumpThroughPlatformInstance)) 
+		{
+			localPlayerActivatedJumpThroughPlatformInstance.sprite_index = localPlayerActivatedJumpThroughPlatformInstance.activeSprite;
+		}
 	}	
 }
 
@@ -250,7 +270,7 @@ if (playerActivatedJumpThroughPlatformInstance != noone)
 	playerSpeedY = 0;
 	
 	setPlayerOnGround(true);
-}
+} 
 
 /*****************************************
 *
