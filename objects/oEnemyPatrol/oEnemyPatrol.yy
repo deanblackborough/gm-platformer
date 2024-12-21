@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sEnemyIdle",
-    "path":"sprites/sEnemyIdle/sEnemyIdle.yy",
+    "name":"sEnemyPatrolIdle",
+    "path":"sprites/sEnemyPatrolIdle/sEnemyPatrolIdle.yy",
   },
   "spriteMaskId":null,
   "visible":true,

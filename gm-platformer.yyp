@@ -38,7 +38,7 @@
     {"id":{"name":"roomStart","path":"rooms/roomStart/roomStart.yy",},},
     {"id":{"name":"playerCollision","path":"scripts/playerCollision/playerCollision.yy",},},
     {"id":{"name":"playerInput","path":"scripts/playerInput/playerInput.yy",},},
-    {"id":{"name":"sEnemyIdle","path":"sprites/sEnemyIdle/sEnemyIdle.yy",},},
+    {"id":{"name":"sEnemyPatrolIdle","path":"sprites/sEnemyPatrolIdle/sEnemyPatrolIdle.yy",},},
     {"id":{"name":"sGround","path":"sprites/sGround/sGround.yy",},},
     {"id":{"name":"sJumpThroughPlatform","path":"sprites/sJumpThroughPlatform/sJumpThroughPlatform.yy",},},
     {"id":{"name":"sMovingJumpThroughPlatform","path":"sprites/sMovingJumpThroughPlatform/sMovingJumpThroughPlatform.yy",},},
