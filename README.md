@@ -30,6 +30,7 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 - Max jumps setting
 - Jump through platforms
 - Moving jump through platforms, move in x and/or y, set speed a target
+- Player activated jump through platforms
 - Player collision with ground 
 - Player collision with jump through platforms
 - Player collision with moving jump through platforms
