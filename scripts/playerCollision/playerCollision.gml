@@ -38,5 +38,6 @@ function setPlayerOnGround(_state, _jump = false)
 		// Reset active platforms as player is no longer touching platforms
 		activeJumpThroughPlatformInstance = noone;
 		activeMovingJumpThroughPlatformInstance = noone;
+		activePlayerActivatedJumpThroughPlatformInstance = noone;
 	}
 }

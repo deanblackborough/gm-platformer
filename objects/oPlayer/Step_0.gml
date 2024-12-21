@@ -146,12 +146,14 @@ if (
 	inputJumpKeyPressed && inputDownKey && 
 	( 
 		jumpThroughPlatformInstance != noone ||
-		movingJumpThroughPlatformInstance != noone
+		movingJumpThroughPlatformInstance != noone || 
+		playerActivatedJumpThroughPlatformInstance != noone
 	)
 )
 {
 	activeJumpThroughPlatformInstance = jumpThroughPlatformInstance;
 	activeMovingJumpThroughPlatformInstance = movingJumpThroughPlatformInstance;
+	activePlayerActivatedJumpThroughPlatformInstance = playerActivatedJumpThroughPlatformInstance;
 	
 	setPlayerOnGround(false);
 }
@@ -208,6 +210,41 @@ if (jumpThroughPlatformInstance != noone)
 	if (snapToColliders) 
 	{
 		snapToColliderOnY(playerSpeedY, jumpThroughPlatformInstance);
+	}
+	
+	playerSpeedY = 0;
+	
+	setPlayerOnGround(true);
+}
+
+/*****************************************
+*
+* Collision with player activated jump through platforms
+*
+*****************************************/
+
+playerActivatedJumpThroughPlatformInstance = noone;
+var numberOfPlayerActivatedJumpThroughPlatforms = instance_number(oPlayerActivatedJumpThroughPlatform);
+
+for (var i = 0; i < numberOfPlayerActivatedJumpThroughPlatforms; i++) 
+{
+	var localPlayerActivatedJumpThroughPlatformInstance = instance_find(oPlayerActivatedJumpThroughPlatform, i);
+	
+	if (
+		place_meeting(x, y + playerSpeedY, localPlayerActivatedJumpThroughPlatformInstance) && 
+		floor(y) <= localPlayerActivatedJumpThroughPlatformInstance.bbox_top && 
+		activePlayerActivatedJumpThroughPlatformInstance != localPlayerActivatedJumpThroughPlatformInstance
+	)
+	{	
+		playerActivatedJumpThroughPlatformInstance = localPlayerActivatedJumpThroughPlatformInstance;
+	}	
+}
+
+if (playerActivatedJumpThroughPlatformInstance != noone) 
+{
+	if (snapToColliders) 
+	{
+		snapToColliderOnY(playerSpeedY, playerActivatedJumpThroughPlatformInstance);
 	}
 	
 	playerSpeedY = 0;
