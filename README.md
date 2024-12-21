@@ -4,9 +4,11 @@
 
 A basic platformer starter project for Game Maker. I'm creating this as a starting point for myself and my kids, I'll get all the basics working for them and then we can all create our own games.
 
-I'm adding many more comments that I would normally, these are to explain what each section of code does so my kids can easily see which parts of the code they may need to modify.
+I'm adding many more comments than I would normally, these are to explain what each section of code does so my kids can easily see which parts of the code they may need to modify.
 
 I'm only building the basics of each feature, if you decide to use this starter project you are probably going to need to tweak things here and there.
+
+Check out a game my Son is building using this starter kit [here](https://github.com/jackblackborough/platformer-starter) - it gives you and idea on how to use the Project - you should but your stuff in MyGame and extend the base objects and inherit the create step to make changes.
 
 I've working on `showDebug` options. The intention is if you set it to true in the create event for an object useful values and 
 information will display to help explain what is happening - this is very much to do/work in progress.
@@ -30,7 +32,7 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 - Gravity setting and terminal velocity setting
 - Max jumps setting
 - Jump through platforms
-- Moving jump through platforms, move in x and/or y
+- Moving jump through platforms, move in x and/or y, set speed a target
 - Player collision with ground 
 - Player collision with jump through platforms
 - Player collision with moving jump through platforms
@@ -40,22 +42,12 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 - Player single ground slide
 - Ground slide and ground dash have a cooldown
 - Player sprites for idle, running, jumping (up and down), dashing & slide
+- Patrolling enemy base class - similar to moving platforms, set speed and target
 
 ## In progress
 
 - Need to show debug values/ranges for moving platforms
 - You can slide and then end up in a ground object
-
-## To Do
-
-- Debug option to show colliders on objects, players
-- Solid platforms - for puzzles
-- Air Dash
-- Rolling
-- Wall climb & Wall hang
-- Breakable walls/platforms
-- Ladders
-- HUD
 
 ## How to run
 
@@ -64,8 +56,12 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 - Open the Project in Game Maker and press play
 
 ## Bugs & issues
+
+There are three know bugs currently - these will be fixed at some point
+
 - If a moving jump through platform is moving in x and y there is a little player wobble when the platform moves in positive x and y
 - You can get stuck if you are right at the edge of a moving platform and connect with a ground object
+- You can dash and slide at the same time if you are quick
 
 ## Credits
 
