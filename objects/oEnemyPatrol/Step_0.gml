@@ -1,5 +1,7 @@
+// Variables for object
 
-getPlayerInput();
+// enemySpeedX = float
+// moveInXAmount = float
 
 sprite_index = enemySpriteIdle;
 image_speed = 1;
@@ -97,7 +99,7 @@ else
 
 if (enemySpeedX == 0) 
 {
-	sprite_index = enemySpriteIdle;	
-	mask_index = enemySpriteIdle;	
+	sprite_index = enemySpriteRun;	
+	mask_index = enemySpriteRun;	
 	image_speed = 1;
 }
