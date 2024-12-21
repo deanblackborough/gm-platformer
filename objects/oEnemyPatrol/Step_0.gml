@@ -74,7 +74,7 @@ if (incrementX == true)
 
 /*****************************************
 *
-* Move the player
+* Move the Enemy
 *
 *****************************************/
 
@@ -97,7 +97,7 @@ else
 	enemySpriteFacing = 1;
 }
 
-if (enemySpeedX == 0) 
+if (enemySpeedX != 0) 
 {
 	sprite_index = enemySpriteRun;	
 	mask_index = enemySpriteRun;	

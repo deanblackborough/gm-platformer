@@ -27,3 +27,5 @@ if (moveInY == true)
 	
 	incrementY = true
 }
+
+showDebug = false;

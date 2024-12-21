@@ -8,10 +8,7 @@ I'm adding many more comments than I would normally, these are to explain what e
 
 I'm only building the basics of each feature, if you decide to use this starter project you are probably going to need to tweak things here and there.
 
-Check out a game my Son is building using this starter kit [here](https://github.com/jackblackborough/platformer-starter) - it gives you and idea on how to use the Project - you should but your stuff in MyGame and extend the base objects and inherit the create step to make changes.
-
-I've working on `showDebug` options. The intention is if you set it to true in the create event for an object useful values and 
-information will display to help explain what is happening - this is very much to do/work in progress.
+Check out a game my Son is building using this starter kit [here](https://github.com/jackblackborough/platformer-starter) - it will gives you an idea on how to use the Project - you should put your stuff in a `MyGame` group and extend the base objects and inherit the create event to make changes to sprites.
 
 ## Current Progress
 
@@ -43,11 +40,7 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 - Ground slide and ground dash have a cooldown
 - Player sprites for idle, running, jumping (up and down), dashing & slide
 - Patrolling enemy base class - similar to moving platforms, set speed and target
-
-## In progress
-
-- Need to show debug values/ranges for moving platforms
-- You can slide and then end up in a ground object
+- Added `showDebug` variable for moving platforms and patrolling enemies to show the movement limits
 
 ## How to run
 

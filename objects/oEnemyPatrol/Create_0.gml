@@ -7,9 +7,9 @@ deltaX = 0;
 targetX = xstart + moveInXAmount;
 incrementX = true;
 
-enemySprite = sEnemyIdle;
-enemySpriteIdle = sEnemyIdle;
-enemySpriteRun = sEnemyIdle;
+enemySprite = sEnemyPatrolIdle;
+enemySpriteIdle = sEnemyPatrolIdle;
+enemySpriteRun = sEnemyPatrolIdle;
 enemySpriteFacing = 1;
 
 gravitySpeed = 0.3;
