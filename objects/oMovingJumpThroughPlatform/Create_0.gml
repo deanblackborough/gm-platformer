@@ -5,8 +5,8 @@
 // moveInY = Bool
 // moveInXSpped = float
 // moveInYSpeed = float
-// moveInXAmount = float
-// moveInYAmount = float
+// moveInXAmount = int
+// moveInYAmount = int
 
 targetX = xstart;
 targetY = ystart;

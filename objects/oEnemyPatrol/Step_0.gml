@@ -1,11 +1,22 @@
 // Variables for object
 
 // enemySpeedX = float
-// moveInXAmount = float
+// moveInXAmount = int
+// startDelayMax = int (Movement will start on random frame between 0 and startDelayMax)
+// showDebug = boolean (Show movement limits)
 
 sprite_index = enemySpriteIdle;
 image_speed = 1;
 
+if (move == false) 
+{
+	step++;
+	
+	if (step > beginStep) 
+	{
+		move = true;	
+	}
+}
 
 /*****************************************
 *
@@ -78,8 +89,11 @@ if (incrementX == true)
 *
 *****************************************/
 
-x = nextFrameX;
-y += enemySpeedY;
+if (move == true) 
+{
+	x = nextFrameX;
+	y += enemySpeedY;
+}
 
 
 /*****************************************
