@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"oJumpThroughPlatform",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"oJumpThroughPlatform",
   "overriddenProperties":[],
@@ -23,7 +25,9 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"sprite","filters":[],"listItems":[],"multiselect":false,"name":"sprite","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"sJumpThroughPlatform","path":"sprites/sJumpThroughPlatform/sJumpThroughPlatform.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"sJumpThroughPlatform","varType":5,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

@@ -91,7 +91,7 @@ if (playerIsSliding)
 }
 else 
 {
-	playerSlideCooldownTimer--;	
+	playerSlideCooldownTimer--;
 }
 
 if (!inputSlideKey && playerSlideTimer > playerSlideTimerMax)
@@ -117,6 +117,23 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 	playerSpeedX = 0;
 }
 
+
+/*****************************************
+*
+* Solid platform collision in x
+*
+*****************************************/
+
+if (place_meeting(x + playerSpeedX, y, oSolidPlatform)) 
+{
+	
+	if (snapToColliders) 
+	{
+		snapToColliderOnX(playerSpeedX, oSolidPlatform);
+	}
+	
+	playerSpeedX = 0;
+}
 
 
 /*****************************************
@@ -181,6 +198,20 @@ if (place_meeting(x, y + playerSpeedY, oGround))
 	
 	setPlayerOnGround(true);
 }
+
+/*****************************************
+*
+* Solid platform collision in y
+*
+*****************************************/
+
+if (place_meeting(x, y + playerSpeedY, oSolidPlatform))
+{
+	playerSpeedY = 0;
+	
+	setPlayerOnGround(true);
+}
+
 
 /*****************************************
 *
@@ -307,7 +338,10 @@ if (movingJumpThroughPlatformInstance != noone)
 
 if (
 	movingJumpThroughPlatformInstance != noone && 
-	place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.deltaY, oGround) 
+	(
+		place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.deltaY, oGround) ||
+		place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.deltaY, oSolidPlatform)
+	)
 )
 {
 	if (abs(movingJumpThroughPlatformInstance.deltaY) != 0) 

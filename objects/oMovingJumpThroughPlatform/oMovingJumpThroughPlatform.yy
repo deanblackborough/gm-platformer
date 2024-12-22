@@ -28,6 +28,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
+    {"$GMObjectProperty":"v1","%Name":"sprite","filters":[],"listItems":[],"multiselect":false,"name":"sprite","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"sMovingJumpThroughPlatform","path":"sprites/sMovingJumpThroughPlatform/sMovingJumpThroughPlatform.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"sMovingJumpThroughPlatform","varType":5,},
     {"$GMObjectProperty":"v1","%Name":"moveInX","filters":[],"listItems":[],"multiselect":false,"name":"moveInX","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"True","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"moveInXSpeed","filters":[],"listItems":[],"multiselect":false,"name":"moveInXSpeed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"moveInXAmount","filters":[],"listItems":[],"multiselect":false,"name":"moveInXAmount","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},

@@ -3,6 +3,10 @@ playerMovementSpeed = 2;
 
 playerMovementDirection = 1;
 
+// Action timers
+playerActionTimer = 0;
+playerActionTimerMax = 12;
+
 // Player Dashing
 playerIsDashing = false;
 playerDashTimer = 0;
