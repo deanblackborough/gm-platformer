@@ -7,10 +7,12 @@ The complete changelog for the Costs to Expect REST API, our changelog follows t
 ### Added
 
 - Added a delay variable (`startDelayMax`) to patrolling enemies - movement will being on a random frame between 0 and `startDelayMax` to give the enemies a little bit of variety.
+- Added a changelog.
 
 ### Changed
 
 - Moved some create variables to the variables tab for objects to allow more individual control on each instance.
+- Updated the contributing.
 
 ## v0.08 - 2024-12-21
 
