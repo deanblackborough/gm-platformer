@@ -1,3 +1,6 @@
+// Variables for object
+
+// showDebug = boolean (Show movement limits, slide target / dash target etc)
 
 playerMovementSpeed = 2;
 
@@ -58,6 +61,3 @@ activePlayerActivatedJumpThroughPlatformInstance = noone;
 
 // Quality options
 snapToColliders = true;
-
-// Debugging
-showDebug = false;

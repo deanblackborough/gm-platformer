@@ -1,3 +1,6 @@
+// Variables for object
+
+// showDebug = boolean (Show movement limits, slide target / dash target etc)
 
 getPlayerInput();
 
@@ -100,6 +103,9 @@ if (playerIsSliding)
 		playerIsSliding = false;	
 		playerSlideTimer = 0;
 	}
+	
+	// Check ahead with the maskIndex of running to see if the player will collide
+	
 }
 else 
 {
@@ -138,7 +144,6 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 
 if (place_meeting(x + playerSpeedX, y, oSolidPlatform)) 
 {
-	
 	if (snapToColliders) 
 	{
 		snapToColliderOnX(playerSpeedX, oSolidPlatform);
@@ -218,8 +223,7 @@ if (playerSpeedY > gravityTerminalSpeed) {
 
 if (place_meeting(x, y + playerSpeedY, oGround))
 {
-	playerSpeedY = 0;
-	
+	playerSpeedY = 0;	
 	setPlayerOnGround(true);
 }
 

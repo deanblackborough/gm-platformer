@@ -8,6 +8,7 @@ The complete changelog for the Costs to Expect REST API, our changelog follows t
 
 - Added a delay variable (`startDelayMax`) to patrolling enemies - movement will begin on a random frame between 0 and `startDelayMax` to give the enemies a little bit of variety.
 - Added a `oPlatform` object - for now it behaves the same as `oGround`- that will change in the future.
+- Added a `showDebug` variable to the player - when enabled it will show the dash and slide targets to help with level design
 - Added a changelog.
 
 ### Changed
