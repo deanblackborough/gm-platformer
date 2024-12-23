@@ -35,6 +35,7 @@
     {"$GMObjectProperty":"v1","%Name":"moveInY","filters":[],"listItems":[],"multiselect":false,"name":"moveInY","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"moveInYSpeed","filters":[],"listItems":[],"multiselect":false,"name":"moveInYSpeed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"moveInYAmount","filters":[],"listItems":[],"multiselect":false,"name":"moveInYAmount","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"showDebug","filters":[],"listItems":[],"multiselect":false,"name":"showDebug","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
