@@ -2,7 +2,7 @@
 
 The complete changelog for the Costs to Expect REST API, our changelog follows the format defined at https://keepachangelog.com/en/1.0.0/
 
-## vNext - DATE
+## v0.09.0 - 2024-12-23
 
 ### Added
 
@@ -14,7 +14,7 @@ The complete changelog for the Costs to Expect REST API, our changelog follows t
 ### Changed
 
 - Moved some create variables to the variables tab for objects to allow more individual control on each instance.
-- Moved sprite definition for `oGround` to a variable - allows you to use one object with many different sprites when designing your levels.
+- Moved sprite definition for `oGround`, `jumpThroughPlatform` and `movingJumpThroughPlatform` to a variable - allows you to use one object with many different sprites when designing your levels - you set the sprite on the instance.
 - Updated the contributing.
 
 ### Fixed
