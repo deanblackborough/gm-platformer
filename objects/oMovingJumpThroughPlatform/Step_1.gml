@@ -1,3 +1,13 @@
+
+// Variables for object
+
+// moveInX = Bool
+// moveInY = Bool
+// moveInXSpped = float
+// moveInYSpeed = float
+// moveInXAmount = int
+// moveInYAmount = int
+
 var nextFrameX = x;
 var nextFrameY = y;
 

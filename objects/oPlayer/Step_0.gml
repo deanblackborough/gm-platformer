@@ -1,3 +1,6 @@
+// Variables for object
+
+// showDebug = boolean (Show movement limits, slide target / dash target etc)
 
 getPlayerInput();
 
@@ -32,7 +35,13 @@ playerSpeedX = playerMovementDirection * playerMovementSpeed;
 *
 *****************************************/
 
-if (abs(playerSpeedX) > 0 && inputShiftKey && playerOnGround && playerDashCooldownTimer <= 0) 
+if (
+	abs(playerSpeedX) > 0 && 
+	inputShiftKey && 
+	playerOnGround && 
+	playerDashCooldownTimer <= 0 && 
+	playerIsSliding == false
+) 
 {
 	playerIsDashing = true;
 	playerDashCooldownTimer = playerDashCooldownTimerMax;
@@ -69,7 +78,13 @@ if (!inputShiftKey && playerDashTimer > playerDashTimerMax)
 *
 *****************************************/
 
-if (abs(playerSpeedX) > 0 && inputSlideKey && playerOnGround &&  playerSlideCooldownTimer <= 0) 
+if (
+	abs(playerSpeedX) > 0 && 
+	inputSlideKey && 
+	playerOnGround &&  
+	playerSlideCooldownTimer <= 0 && 
+	playerIsDashing == false
+) 
 {
 	playerIsSliding = true;
 	playerSlideCooldownTimer = playerSlideCooldownTimerMax;
@@ -88,10 +103,13 @@ if (playerIsSliding)
 		playerIsSliding = false;	
 		playerSlideTimer = 0;
 	}
+	
+	// Check ahead with the maskIndex of running to see if the player will collide
+	
 }
 else 
 {
-	playerSlideCooldownTimer--;	
+	playerSlideCooldownTimer--;
 }
 
 if (!inputSlideKey && playerSlideTimer > playerSlideTimerMax)
@@ -117,6 +135,22 @@ if (place_meeting(x + playerSpeedX, y, oGround))
 	playerSpeedX = 0;
 }
 
+
+/*****************************************
+*
+* Solid platform collision in x
+*
+*****************************************/
+
+if (place_meeting(x + playerSpeedX, y, oSolidPlatform)) 
+{
+	if (snapToColliders) 
+	{
+		snapToColliderOnX(playerSpeedX, oSolidPlatform);
+	}
+	
+	playerSpeedX = 0;
+}
 
 
 /*****************************************
@@ -158,9 +192,21 @@ if (
 	setPlayerOnGround(false);
 }
 
-if (inputJumpKeyPressed > 0 && playerJumps < playerMaxJumps && !inputDownKey) 
+if (
+	inputJumpKeyPressed > 0 && 
+	playerJumps < playerMaxJumps && 
+	!inputDownKey && 
+	playerIsSliding == false && 
+	playerIsDashing == false && 
+	(
+		playerIsJumping == false ||
+		(playerIsJumping == true && playerJumps < playerMaxJumps)
+	)
+	
+) 
 {
 	playerSpeedY = playerJumpForce;
+	playerIsJumping = true;
 	
 	setPlayerOnGround(false, true);
 }
@@ -177,10 +223,23 @@ if (playerSpeedY > gravityTerminalSpeed) {
 
 if (place_meeting(x, y + playerSpeedY, oGround))
 {
+	playerSpeedY = 0;	
+	setPlayerOnGround(true);
+}
+
+/*****************************************
+*
+* Solid platform collision in y
+*
+*****************************************/
+
+if (place_meeting(x, y + playerSpeedY, oSolidPlatform))
+{
 	playerSpeedY = 0;
 	
 	setPlayerOnGround(true);
 }
+
 
 /*****************************************
 *
@@ -307,7 +366,10 @@ if (movingJumpThroughPlatformInstance != noone)
 
 if (
 	movingJumpThroughPlatformInstance != noone && 
-	place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.deltaY, oGround) 
+	(
+		place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.deltaY, oGround) ||
+		place_meeting(x, y + playerSpeedY + movingJumpThroughPlatformInstance.deltaY, oSolidPlatform)
+	)
 )
 {
 	if (abs(movingJumpThroughPlatformInstance.deltaY) != 0) 

@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"oGround",
+  "%Name":"oSolidPlatform",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"oGround",
+  "name":"oSolidPlatform",
   "overriddenProperties":[],
   "parent":{
     "name":"Environment",
@@ -25,15 +25,13 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"v1","%Name":"sprite","filters":[],"listItems":[],"multiselect":false,"name":"sprite","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"sGround","path":"sprites/sGround/sGround.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"sGround","varType":5,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sGround",
-    "path":"sprites/sGround/sGround.yy",
+    "name":"sSolidPlatform",
+    "path":"sprites/sSolidPlatform/sSolidPlatform.yy",
   },
   "spriteMaskId":null,
   "visible":true,

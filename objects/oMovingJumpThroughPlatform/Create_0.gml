@@ -5,8 +5,11 @@
 // moveInY = Bool
 // moveInXSpped = float
 // moveInYSpeed = float
-// moveInXAmount = float
-// moveInYAmount = float
+// moveInXAmount = int
+// moveInYAmount = int
+// sprite = asset (The sprite to use for the asset)
+
+sprite_index = sprite;
 
 targetX = xstart;
 targetY = ystart;
