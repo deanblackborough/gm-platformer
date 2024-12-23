@@ -28,7 +28,8 @@ function setPlayerOnGround(_state, _jump = false)
 	
 	if (_state == true)
 	{
-		playerJumps = 0;	
+		playerJumps = 0;
+		playerIsJumping = false;
 	}
 	
 	if (_state == false && _jump == true) 

@@ -16,6 +16,10 @@ The complete changelog for the Costs to Expect REST API, our changelog follows t
 - Moved sprite definition for `oGround` to a variable - allows you to use one object with many different sprites when designing your levels.
 - Updated the contributing.
 
+### Fixed
+
+- Player can no longer slide/dash or jump at the same time - one player action at a time, no compounding actions.
+
 ## v0.08 - 2024-12-21
 
 ### Added
