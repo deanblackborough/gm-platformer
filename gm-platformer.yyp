@@ -38,6 +38,7 @@
     {"id":{"name":"oSolidMovingPlatform","path":"objects/oSolidMovingPlatform/oSolidMovingPlatform.yy",},},
     {"id":{"name":"oSolidPlatform","path":"objects/oSolidPlatform/oSolidPlatform.yy",},},
     {"id":{"name":"oSolidPLayerActivatedPlatform","path":"objects/oSolidPLayerActivatedPlatform/oSolidPLayerActivatedPlatform.yy",},},
+    {"id":{"name":"UI","path":"objects/UI/UI.yy",},},
     {"id":{"name":"room01","path":"rooms/room01/room01.yy",},},
     {"id":{"name":"roomStart","path":"rooms/roomStart/roomStart.yy",},},
     {"id":{"name":"playerCollision","path":"scripts/playerCollision/playerCollision.yy",},},

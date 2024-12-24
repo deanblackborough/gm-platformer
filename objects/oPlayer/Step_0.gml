@@ -284,7 +284,7 @@ if (jumpThroughPlatformInstance != noone)
 
 if (instance_exists(playerActivatedJumpThroughPlatformInstance)) 
 {
-	playerActivatedJumpThroughPlatformInstance.sprite_index = playerActivatedJumpThroughPlatformInstance.initialSprite;	
+	playerActivatedJumpThroughPlatformInstance.sprite_index = playerActivatedJumpThroughPlatformInstance.spriteInitial;	
 }
 
 
@@ -293,7 +293,7 @@ var resetNumberOfPlayerActivatedJumpThroughPlatforms = instance_number(oPlayerAc
 for (var i = 0; i < resetNumberOfPlayerActivatedJumpThroughPlatforms; i++) 
 {
 	var localPlayerActivatedJumpThroughPlatformInstance = instance_find(oPlayerActivatedJumpThroughPlatform, i);
-	localPlayerActivatedJumpThroughPlatformInstance.sprite_index = localPlayerActivatedJumpThroughPlatformInstance.initialSprite;	
+	localPlayerActivatedJumpThroughPlatformInstance.sprite_index = localPlayerActivatedJumpThroughPlatformInstance.spriteInitial;	
 }
 
 playerActivatedJumpThroughPlatformInstance = noone;
@@ -314,7 +314,7 @@ for (var i = 0; i < numberOfPlayerActivatedJumpThroughPlatforms; i++)
 		
 		if (instance_exists(localPlayerActivatedJumpThroughPlatformInstance)) 
 		{
-			localPlayerActivatedJumpThroughPlatformInstance.sprite_index = localPlayerActivatedJumpThroughPlatformInstance.activeSprite;
+			localPlayerActivatedJumpThroughPlatformInstance.sprite_index = localPlayerActivatedJumpThroughPlatformInstance.spriteActive;
 		}
 	}	
 }

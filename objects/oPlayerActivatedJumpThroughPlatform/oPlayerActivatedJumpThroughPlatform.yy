@@ -25,7 +25,10 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"sprite","filters":[],"listItems":[],"multiselect":false,"name":"sprite","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"sPlayerActivatedJumpThroughPlatform","path":"sprites/sPlayerActivatedJumpThroughPlatform/sPlayerActivatedJumpThroughPlatform.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"sPlayerActivatedJumpThroughPlatform","varType":5,},
+    {"$GMObjectProperty":"v1","%Name":"spriteActive","filters":[],"listItems":[],"multiselect":false,"name":"spriteActive","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"sPlayerActivatedJumpThroughPlatformActive","path":"sprites/sPlayerActivatedJumpThroughPlatformActive/sPlayerActivatedJumpThroughPlatformActive.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"sPlayerActivatedJumpThroughPlatformActive","varType":5,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
