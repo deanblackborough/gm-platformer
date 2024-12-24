@@ -2,13 +2,14 @@
 
 The complete changelog for the Costs to Expect REST API, our changelog follows the format defined at https://keepachangelog.com/en/1.0.0/
 
-## vNext - [DATE]
+## v0.10.0 - [2024-12-24]
 
 ### Added
 - Added the game maker health bar to the top left of the screen - follows camera.
 - Added `playerHealth`, `playerMaxHealth` and `playerIFrames variables to player.
 - Added `enemyDamage` to patrolling enemy.
 - Added basic enemy collision.
+- Added a basic kill plane - sets the enemy health to zero.
 
 ### Changed
 - Debug display changes - debug for player also shows the current collision box.
