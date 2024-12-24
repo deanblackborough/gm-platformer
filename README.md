@@ -22,6 +22,7 @@ Check out a game my Son is building using this starter kit [here](https://github
 - Blue & solid - moving solid platform (Dev in progress)
 - Green & translucent - player activated jump through platform
 - Green & solid - player activated platform (Dev in progress)
+- Yellow and Black - Kill plane
 
 ## Controls
 
@@ -47,6 +48,8 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 - Player sprites for idle, running, jumping (up and down), dashing & slide
 - Patrolling enemy base class - similar to moving platforms, set speed, target and start delay
 - `showDebug` variables on multiple objects to show movements and targets etc.
+- Enemy damage and collision detection
+- Kill plane
 
 ## How to run
 
