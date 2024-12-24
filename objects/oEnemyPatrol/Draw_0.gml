@@ -13,6 +13,6 @@ draw_sprite_ext(
 if (showDebug)
 {	
 	draw_set_colour(c_lime);
-	draw_line_width(xstart - 12, ystart - 1, xstart - 12, ystart - 32, 2);
-	draw_line_width(xstart + moveInXAmount + 12, ystart - 1, xstart + moveInXAmount + 12, ystart - 32, 2);
+	draw_line_width(xstart - 12, ystart - 1, xstart - 12, ystart - 32, 1);
+	draw_line_width(xstart + moveInXAmount + 12, ystart - 1, xstart + moveInXAmount + 12, ystart - 32, 1);
 }

@@ -13,13 +13,13 @@ draw_sprite_ext(
 if (showDebug && moveInX)
 {	
 	draw_set_colour(c_lime);
-	draw_line_width(xstart, ystart - 1, xstart ,ystart + 15, 2);
-	draw_line_width(xstart + moveInXAmount + (bbox_right - bbox_left), ystart - 1, xstart + moveInXAmount + (bbox_right - bbox_left), ystart + 15, 2);
+	draw_line_width(xstart, ystart - 1, xstart ,ystart + 15, 1);
+	draw_line_width(xstart + moveInXAmount + (bbox_right - bbox_left), ystart - 1, xstart + moveInXAmount + (bbox_right - bbox_left), ystart + 15, 1);
 }
 
 if (showDebug && moveInY)
 {	
 	draw_set_colour(c_lime);
-	draw_line_width(xstart, ystart, xstart + (bbox_right - bbox_left), ystart, 2);
-	draw_line_width(xstart, ystart + moveInYAmount + (bbox_bottom - bbox_top), xstart + (bbox_right - bbox_left), ystart + moveInYAmount + (bbox_bottom - bbox_top), 2);
+	draw_line_width(xstart, ystart, xstart + (bbox_right - bbox_left), ystart, 1);
+	draw_line_width(xstart, ystart + moveInYAmount + (bbox_bottom - bbox_top), xstart + (bbox_right - bbox_left), ystart + moveInYAmount + (bbox_bottom - bbox_top), 1);
 }
