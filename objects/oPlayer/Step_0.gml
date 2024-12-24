@@ -393,6 +393,21 @@ if (
 x += playerSpeedX;
 y += playerSpeedY;
 
+/*****************************************
+*
+* Basic kill plane
+*
+*****************************************/
+
+if (place_meeting(x, y, oKillPlane)) 
+{	
+	playerHealth = 0;
+}
+
+if (playerHealth <= 0) 
+{
+	room_restart();	
+}
 
 /*****************************************
 *
@@ -401,12 +416,7 @@ y += playerSpeedY;
 *****************************************/
 
 if (place_meeting(x, y, oEnemyPatrol)) 
-{
-	if (playerHealth <= 0) 
-	{
-		room_restart();	
-	}
-	
+{	
 	playerIFramesCounter--;
 	
 	if (playerIFramesCounter > 0) 
