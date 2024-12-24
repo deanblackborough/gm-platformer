@@ -31,6 +31,7 @@
     {"$GMObjectProperty":"v1","%Name":"enemySpeedX","filters":[],"listItems":[],"multiselect":false,"name":"enemySpeedX","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.6","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"moveInXAmount","filters":[],"listItems":[],"multiselect":false,"name":"moveInXAmount","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"96","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"startDelayMax","filters":[],"listItems":[],"multiselect":false,"name":"startDelayMax","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"enemyDamage","filters":[],"listItems":[],"multiselect":false,"name":"enemyDamage","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"showDebug","filters":[],"listItems":[],"multiselect":false,"name":"showDebug","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
   ],
   "resourceType":"GMObject",

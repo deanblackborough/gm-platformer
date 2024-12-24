@@ -396,6 +396,30 @@ y += playerSpeedY;
 
 /*****************************************
 *
+* Basic enemy collision
+*
+*****************************************/
+
+if (place_meeting(x, y, oEnemyPatrol)) 
+{
+	if (playerHealth <= 0) 
+	{
+		room_restart();	
+	}
+	
+	playerIFramesCounter--;
+	
+	if (playerIFramesCounter > 0) 
+	{
+		exit;
+	}
+	
+	playerHealth -= oEnemyPatrol.enemyDamage;
+	playerIFramesCounter = playerIFrames;
+}
+
+/*****************************************
+*
 * Switch the sprite
 *
 *****************************************/
@@ -442,19 +466,4 @@ if (playerSpeedY > 0 && playerOnGround != true)
 	mask_index = playerSpriteJump;
 	image_speed = 0;
 	image_index = 2;
-}
-
-
-/*****************************************
-*
-* Debug params
-*
-*****************************************/
-
-if (showDebug) 
-{
-	show_debug_message("Player X: ", string(x));	
-	show_debug_message("Player Y: ", string(y));	
-	show_debug_message("Player Speed X: ", string(playerSpeedX));	
-	show_debug_message("Player Spped Y: ", string(playerSpeedY));	
 }

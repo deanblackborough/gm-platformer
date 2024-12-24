@@ -3,6 +3,7 @@
 // enemySpeedX = float
 // moveInXAmount = int
 // startDelayMax = int (Movement will start on random frame between 0 and startDelayMax)
+// enemyDamage = int
 // showDebug = boolean (Show movement limits)
 
 enemyMovementSpeed = 1;
