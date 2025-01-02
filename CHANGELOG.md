@@ -2,6 +2,18 @@
 
 The complete changelog for the Costs to Expect REST API, our changelog follows the format defined at https://keepachangelog.com/en/1.0.0/
 
+## v0.10.1 - [2025-01-02]
+
+### Changed
+- Added a `drawHealthBar` variable to the UI object to allow you to turn off the health bar.
+
+### Fixed
+- Updated the basic collision - now decreases the health based on the instance that did the damage.
+- iFrames count down continuous - doesn't just count down during collisions.
+
+### Changed
+- Debug display changes - debug for player also shows the current collision box.
+
 ## v0.10.0 - [2024-12-24]
 
 ### Added
