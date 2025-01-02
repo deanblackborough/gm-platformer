@@ -415,8 +415,9 @@ if (playerHealth <= 0)
 *
 *****************************************/
 
-if (place_meeting(x, y, oEnemyPatrol)) 
-{	
+var oEnemyPatrolInstance = instance_place(x, y, oEnemyPatrol);
+if (oEnemyPatrolInstance != noone)
+{
 	playerIFramesCounter--;
 	
 	if (playerIFramesCounter > 0) 
@@ -424,7 +425,7 @@ if (place_meeting(x, y, oEnemyPatrol))
 		exit;
 	}
 	
-	playerHealth -= oEnemyPatrol.enemyDamage;
+	playerHealth -= oEnemyPatrolInstance.enemyDamage;
 	playerIFramesCounter = playerIFrames;
 }
 
