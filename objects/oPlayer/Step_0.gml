@@ -415,18 +415,15 @@ if (playerHealth <= 0)
 *
 *****************************************/
 
-var oEnemyPatrolInstance = instance_place(x, y, oEnemyPatrol);
-if (oEnemyPatrolInstance != noone)
+playerIFramesCounter--;
+if (playerIFramesCounter < 0) 
 {
-	playerIFramesCounter--;
-	
-	if (playerIFramesCounter > 0) 
+	var oEnemyPatrolInstance = instance_place(x, y, oEnemyPatrol);
+	if (oEnemyPatrolInstance != noone)
 	{
-		exit;
+		playerHealth -= oEnemyPatrolInstance.enemyDamage;
+		playerIFramesCounter = playerIFrames;
 	}
-	
-	playerHealth -= oEnemyPatrolInstance.enemyDamage;
-	playerIFramesCounter = playerIFrames;
 }
 
 /*****************************************

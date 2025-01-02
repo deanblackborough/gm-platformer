@@ -30,7 +30,7 @@
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"playerHealth","filters":[],"listItems":[],"multiselect":false,"name":"playerHealth","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"64","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"playerMaxHealth","filters":[],"listItems":[],"multiselect":false,"name":"playerMaxHealth","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"64","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"playerIFrames","filters":[],"listItems":[],"multiselect":false,"name":"playerIFrames","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"15","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"playerIFrames","filters":[],"listItems":[],"multiselect":false,"name":"playerIFrames","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"60","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"showDebug","filters":[],"listItems":[],"multiselect":false,"name":"showDebug","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
   ],
   "resourceType":"GMObject",
