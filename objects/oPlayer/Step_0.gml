@@ -2,7 +2,7 @@
 
 // showDebug = boolean (Show movement limits, slide target / dash target etc)
 
-getPlayerInput();
+getPlayerInput(playerHealth > 0);
 
 sprite_index = playerSpriteIdle;
 image_speed = 1;
@@ -389,6 +389,10 @@ if (
 * Move the player
 *
 *****************************************/
+if (playerHealth <= 0) {
+	playerSpeedX = 0;	
+}
+
 
 x += playerSpeedX;
 y += playerSpeedY;
@@ -402,11 +406,6 @@ y += playerSpeedY;
 if (place_meeting(x, y, oKillPlane)) 
 {	
 	playerHealth = 0;
-}
-
-if (playerHealth <= 0) 
-{
-	room_restart();	
 }
 
 /*****************************************
@@ -432,7 +431,7 @@ if (playerIFramesCounter < 0)
 *
 *****************************************/
 
-if (playerSpeedX == 0) 
+if (playerSpeedX == 0 && playerHealth > 0) 
 {
 	sprite_index = playerSpriteIdle;	
 	mask_index = playerSpriteIdle;	
@@ -474,4 +473,15 @@ if (playerSpeedY > 0 && playerOnGround != true)
 	mask_index = playerSpriteJump;
 	image_speed = 0;
 	image_index = 2;
+}
+
+if (playerHealth <= 0) 
+{
+	if (image_index > image_number - 1)
+	{
+		image_speed = 0;
+	}
+
+	sprite_index = playerSpriteDeath;	
+	mask_index = playerSpriteDeath;	
 }

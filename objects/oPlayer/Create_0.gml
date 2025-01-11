@@ -5,6 +5,8 @@
 // playerMaxHealth = integer
 // playerIFrames = integer
 
+playerDeathAnimationPlayed = false;
+
 playerMovementSpeed = 2;
 playerMovementDirection = 1;
 
@@ -37,6 +39,7 @@ playerSpriteRun = sPlayerRun;
 playerSpriteDash = sPlayerDash;
 playerSpriteSlide = sPlayerSlide;
 playerSpriteJump = sPlayerJump;
+playerSpriteDeath = sPlayerDeath;
 playerSpriteFacing = 1;
 
 gravitySpeed = 0.3;

@@ -52,6 +52,7 @@
     {"id":{"name":"sPlayerActivatedJumpThroughPlatform","path":"sprites/sPlayerActivatedJumpThroughPlatform/sPlayerActivatedJumpThroughPlatform.yy",},},
     {"id":{"name":"sPlayerActivatedJumpThroughPlatformActive","path":"sprites/sPlayerActivatedJumpThroughPlatformActive/sPlayerActivatedJumpThroughPlatformActive.yy",},},
     {"id":{"name":"sPlayerDash","path":"sprites/sPlayerDash/sPlayerDash.yy",},},
+    {"id":{"name":"sPlayerDeath","path":"sprites/sPlayerDeath/sPlayerDeath.yy",},},
     {"id":{"name":"sPlayerIdle","path":"sprites/sPlayerIdle/sPlayerIdle.yy",},},
     {"id":{"name":"sPlayerJump","path":"sprites/sPlayerJump/sPlayerJump.yy",},},
     {"id":{"name":"sPlayerRun","path":"sprites/sPlayerRun/sPlayerRun.yy",},},
