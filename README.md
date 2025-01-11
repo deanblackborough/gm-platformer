@@ -50,6 +50,8 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 - `showDebug` variables on multiple objects to show movements and targets etc.
 - Enemy damage and collision detection
 - Kill plane
+- Player death animation plays on death and all input is ignored.
+
 
 ## How to run
 
