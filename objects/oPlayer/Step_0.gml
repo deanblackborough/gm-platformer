@@ -104,7 +104,7 @@ if (playerIsSliding)
 		playerSlideTimer = 0;
 	}
 	
-	// Check ahead with the maskIndex of running to see if the player will collide
+	// TODO Check ahead with the maskIndex of running to see if the player will collide
 	
 }
 else 
@@ -330,6 +330,59 @@ if (playerActivatedJumpThroughPlatformInstance != noone)
 	
 	setPlayerOnGround(true);
 } 
+
+/*****************************************
+*
+* Collision with solid moving platforms
+*
+*****************************************/
+
+movingSolidPlatformInstance = noone;
+var numberOfMovingSolidPlatforms = instance_number(oSolidMovingPlatform);
+
+for (var i = 0; i < numberOfMovingSolidPlatforms; i++) 
+{
+	var localMovingSolidPlatformInstance = instance_find(oSolidMovingPlatform, i);
+	
+	if (
+		activeMovingSolidPlatformInstance != localMovingSolidPlatformInstance &&
+		place_meeting(x, y + playerSpeedY, localMovingSolidPlatformInstance) && 
+		floor(y) <= ceil(localMovingSolidPlatformInstance.bbox_top - localMovingSolidPlatformInstance.deltaY)
+	)
+	{	
+		movingSolidPlatformInstance = localMovingSolidPlatformInstance;
+	}	
+}
+
+if (movingSolidPlatformInstance != noone) 
+{	
+	x += movingSolidPlatformInstance.deltaX;
+	y += movingSolidPlatformInstance.deltaY;
+	
+	setPlayerOnGround(true);
+	
+	playerSpeedY = 0;
+}
+
+if (
+	movingSolidPlatformInstance != noone && 
+	(
+		place_meeting(x, y + playerSpeedY + movingSolidPlatformInstance.deltaY, oGround) ||
+		place_meeting(x, y + playerSpeedY + movingSolidPlatformInstance.deltaY, oSolidPlatform)
+	)
+)
+{
+	if (abs(movingSolidPlatformInstance.deltaY) != 0) 
+	{
+		movingSolidPlatformInstance = noone;	
+		y += 1;
+	}
+	
+	if (movingSolidPlatformInstance != noone && abs(movingSolidPlatformInstance.deltaX) != 0) 
+	{
+		x += -movingSolidPlatformInstance.deltaX;	
+	}
+}
 
 /*****************************************
 *

@@ -55,6 +55,10 @@ playerMaxJumps = 2;
 // Damage and iFrames
 playerIFramesCounter = 0;
 
+// Moving solid platforms
+movingSolidPlatformInstance = noone;
+activeMovingSolidPlatformInstance = noone;
+
 // Jump through platforms
 jumpThroughPlatformInstance = noone;
 activeJumpThroughPlatformInstance = noone;

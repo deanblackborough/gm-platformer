@@ -52,6 +52,16 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 - Kill plane
 - Player death animation plays on death and all input is ignored.
 
+## In Progress
+### Solid moving platforms
+- You can jump up through them
+- The collision is just against the top of the box
+### Player activated platform
+- No game logic
+
+## Next
+- Timer on player activated platforms
+- Melee combat
 
 ## How to run
 
