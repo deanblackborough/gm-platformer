@@ -1,5 +1,9 @@
 function getPlayerInput(_process = true) 
 {
+	if(keyboard_check(ord("R"))) {
+		game_restart();
+	}
+	
 	if (_process) 
 	{
 		inputRightKey = keyboard_check(ord("D")) + 
