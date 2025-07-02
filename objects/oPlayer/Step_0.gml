@@ -348,16 +348,26 @@ for (var i = 0; i < numberOfMovingSolidPlatforms; i++)
 	)
 	{	
 		movingSolidPlatformInstance = localMovingSolidPlatformInstance;
-	}	
+	}
+	
+	show_debug_message("Player Y: " + string(y));
+	show_debug_message("Player bbox_top: " + string(bbox_top));
+	show_debug_message("Platform bottom: " + string(localMovingSolidPlatformInstance.bbox_bottom));
+	show_debug_message("Platform delta Y: " + string(localMovingSolidPlatformInstance.deltaY));
+	
+	// We can simplify this and just do place meeting
+	// then inside the check see if x speed is set and then adjust accordingly
+	// Y speed should always be set and on ground??
 	
 	if (
-		activeMovingSolidPlatformInstance != localMovingSolidPlatformInstance &&
+		movingSolidPlatformInstance == noone &&
+		activeMovingSolidPlatformInstance != localMovingSolidPlatformInstance &&  
 		place_meeting(x, y + playerSpeedY, localMovingSolidPlatformInstance) && 
-		floor(y + bbox_top) >= ceil(localMovingSolidPlatformInstance.bbox_bottom - localMovingSolidPlatformInstance.deltaY)
+		ceil(bbox_top - playerSpeedY) >= floor(localMovingSolidPlatformInstance.bbox_bottom + localMovingSolidPlatformInstance.deltaY)
 	)
 	{	
 		playerSpeedY = 0;
-		setPlayerOnGround(false, true);
+		setPlayerOnGround(false, false);
 	}
 }
 
@@ -456,33 +466,6 @@ if (playerHealth <= 0) {
 
 x += playerSpeedX;
 y += playerSpeedY;
-
-show_debug_message("Player on Ground: " + string(playerOnGround));
-show_debug_message("Player Speed Y: " + string(playerSpeedY));
-show_debug_message("Active Ground: " + string(activeGround));
-
-/*****************************************
-*
-* Set not on ground when falling through air
-*
-*****************************************/
-/*
-if (
-	playerOnGround = true && 
-	(
-		activeGround == false || 
-		activeJumpThroughPlatformInstance = noone ||
-		activeMovingJumpThroughPlatformInstance = noone ||
-		activeMovingSolidPlatformInstance = noone ||
-		activePlayerActivatedJumpThroughPlatformInstance = noone
-	)
-) 
-{
-	show_debug_message("Falling");
-	playerOnGround = false;
-}
-*/
-
 
 /*****************************************
 *
