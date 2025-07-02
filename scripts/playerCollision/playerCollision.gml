@@ -30,6 +30,7 @@ function setPlayerOnGround(_state, _jump = false)
 	{
 		playerJumps = 0;
 		playerIsJumping = false;
+		activeGround = true;
 	}
 	
 	if (_state == false && _jump == true) 
@@ -41,5 +42,6 @@ function setPlayerOnGround(_state, _jump = false)
 		activeMovingJumpThroughPlatformInstance = noone;
 		activeMovingSolidPlatformInstance = noone;
 		activePlayerActivatedJumpThroughPlatformInstance = noone;
+		activeGround = false;
 	}
 }

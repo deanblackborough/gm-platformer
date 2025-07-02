@@ -236,7 +236,6 @@ if (place_meeting(x, y + playerSpeedY, oGround))
 if (place_meeting(x, y + playerSpeedY, oSolidPlatform))
 {
 	playerSpeedY = 0;
-	
 	setPlayerOnGround(true);
 }
 
@@ -272,7 +271,6 @@ if (jumpThroughPlatformInstance != noone)
 	}
 	
 	playerSpeedY = 0;
-	
 	setPlayerOnGround(true);
 }
 
@@ -327,7 +325,6 @@ if (playerActivatedJumpThroughPlatformInstance != noone)
 	}
 	
 	playerSpeedY = 0;
-	
 	setPlayerOnGround(true);
 } 
 
@@ -352,6 +349,16 @@ for (var i = 0; i < numberOfMovingSolidPlatforms; i++)
 	{	
 		movingSolidPlatformInstance = localMovingSolidPlatformInstance;
 	}	
+	
+	if (
+		activeMovingSolidPlatformInstance != localMovingSolidPlatformInstance &&
+		place_meeting(x, y + playerSpeedY, localMovingSolidPlatformInstance) && 
+		floor(y + bbox_top) >= ceil(localMovingSolidPlatformInstance.bbox_bottom - localMovingSolidPlatformInstance.deltaY)
+	)
+	{	
+		playerSpeedY = 0;
+		setPlayerOnGround(false, true);
+	}
 }
 
 if (movingSolidPlatformInstance != noone) 
@@ -449,6 +456,33 @@ if (playerHealth <= 0) {
 
 x += playerSpeedX;
 y += playerSpeedY;
+
+show_debug_message("Player on Ground: " + string(playerOnGround));
+show_debug_message("Player Speed Y: " + string(playerSpeedY));
+show_debug_message("Active Ground: " + string(activeGround));
+
+/*****************************************
+*
+* Set not on ground when falling through air
+*
+*****************************************/
+/*
+if (
+	playerOnGround = true && 
+	(
+		activeGround == false || 
+		activeJumpThroughPlatformInstance = noone ||
+		activeMovingJumpThroughPlatformInstance = noone ||
+		activeMovingSolidPlatformInstance = noone ||
+		activePlayerActivatedJumpThroughPlatformInstance = noone
+	)
+) 
+{
+	show_debug_message("Falling");
+	playerOnGround = false;
+}
+*/
+
 
 /*****************************************
 *

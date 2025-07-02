@@ -46,6 +46,7 @@ gravitySpeed = 0.3;
 gravityTerminalSpeed = 6;
 
 playerOnGround = false;
+activeGround = false;
 
 playerIsJumping = false;
 playerJumpForce = -5;
@@ -54,6 +55,8 @@ playerMaxJumps = 2;
 
 // Damage and iFrames
 playerIFramesCounter = 0;
+
+
 
 // Moving solid platforms
 movingSolidPlatformInstance = noone;
