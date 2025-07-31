@@ -71,7 +71,7 @@ Check the `player/scripts/playerInput` script file, the controls should be what 
 
 ## Bugs & issues
 
-There are the knobe bugs - they will be fixed at some point
+There are the known bugs - they will be fixed at some point
 
 - You can slide into a solid object, well finish in one (fix in progress)
 
